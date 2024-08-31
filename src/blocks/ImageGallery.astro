@@ -1,0 +1,42 @@
+---
+import { Image } from "astro:assets";
+import { halfWidthSizes, srcSet, urlFor } from "../utils/image";
+
+const { block } = Astro.props;
+
+let aspectRatio = "";
+let grid = "";
+const { length } = block.images;
+
+if (length % 2 === 0) {
+  grid = "sm:grid-cols-2";
+  aspectRatio = "aspect-[4/3]";
+} else if (length % 3 === 0) {
+  grid = "md:grid-cols-3";
+  aspectRatio = "aspect-[4/3]";
+} else {
+  grid = "";
+  aspectRatio = "aspect-[4/3] md:aspect-[2/1]";
+}
+---
+
+<div class="w-full">
+  <div class={`gap-6 grid grid-cols-1 xl:gap-10 ${grid}`}>
+    {
+      block.images.map((image: any) => {
+        const imageUrl = urlFor(image).url();
+        return (
+          <Image
+            sizes={halfWidthSizes()}
+            srcset={srcSet(imageUrl)}
+            width={1000}
+            height={1000}
+            src={imageUrl}
+            alt={image.alt ?? ""}
+            class={`object-cover w-full h-full img-rounded ${aspectRatio}`}
+          />
+        );
+      })
+    }
+  </div>
+</div>

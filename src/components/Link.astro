@@ -1,0 +1,45 @@
+---
+const { data, inverse } = Astro.props;
+
+let href;
+
+switch (data.link.type) {
+  case "email":
+    href = `mailto:${data.link.email}`;
+    break;
+  case "phone":
+    href = `tel:${data.link.phone}`;
+    break;
+  case "external":
+    href = data.link.url;
+    break;
+  case "internal":
+    href = `/${data.link.internalLink.slug.current}`;
+    break;
+  default:
+    href = "#"; // Default value if none of the types match
+}
+
+let linkStyle;
+
+switch (data.linkStyle) {
+  case "primary":
+    linkStyle = "btn btn--primary";
+    break;
+  case "secondary":
+    linkStyle = "btn btn--secondary";
+    break;
+  case "link":
+    linkStyle = "link";
+    break;
+  default:
+    linkStyle = "";
+    break;
+}
+---
+
+<a
+  class=`${linkStyle}${inverse ? "-inverse" : ""}`
+  target={data.link.blank ? "_blank" : ""}
+  href={href}>{data.link.text}</a
+>

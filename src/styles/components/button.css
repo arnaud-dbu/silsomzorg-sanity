@@ -1,0 +1,30 @@
+.btn {
+  @apply inline-block px-6 py-2 rounded-xl  font-normal tracking-wider text-base transition;
+
+  &::after {
+    @apply size-4;
+    transition-property: background-color, border-color, color, fill, stroke,
+      opacity, box-shadow, transform;
+    transition-timing-function: ease-in-out;
+    transition-duration: 200ms;
+  }
+
+  &--primary {
+    @apply bg-primary-600 text-white hover:bg-primary-500;
+
+    &-inverse {
+      @apply bg-white text-dark hover:bg-white/90;
+    }
+  }
+
+  &--ghost {
+  }
+
+  &--ext {
+    @mixin icon arrow-right;
+
+    &::after {
+      @apply ml-2;
+    }
+  }
+}

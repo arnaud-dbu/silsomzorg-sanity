@@ -1,0 +1,12 @@
+---
+const { data, inverse } = Astro.props;
+import Link from "./Link.astro";
+---
+
+<div class="flex flex-wrap gap-4">
+  {
+    data?.map((link: any) => {
+      return <Link inverse={inverse} data={link} />;
+    })
+  }
+</div>

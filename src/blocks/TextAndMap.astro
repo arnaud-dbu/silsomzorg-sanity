@@ -1,0 +1,33 @@
+---
+import Links from "../components/Links.astro";
+import { PortableText } from "astro-portabletext";
+
+const { block } = Astro.props;
+
+const street = block.street.replace(/[\s-]/g, "+");
+const number = block.number.replace(/[\s-]/g, "+");
+const city = block.city.replace(/[\s-]/g, "+");
+const address = `${street ?? ""}+${number ?? ""},${city ?? ""}`;
+
+const alignText =
+  block.textPosition == "right" ? "lg:flex-row" : "lg:flex-row-reverse";
+---
+
+<div
+  class=`flex flex-col lg:flex-row gap-6 lg:gap-16 lg:items-center ${alignText}`
+>
+  <iframe
+    class="w-full lg:w-1/2 aspect-video lg:aspect-square img-rounded border-none"
+    referrerpolicy="no-referrer-when-downgrade"
+    src=`https://www.google.com/maps/embed/v1/place?key=AIzaSyAKq_9ud7SFKDGWcfSVT3WDbwu05nB_Wok&q=${address}`
+    allowfullscreen
+  >
+  </iframe>
+  <div class=`w-full lg:w-1/2 spacing-y `>
+    <h2>{block.title}</h2>
+    <div class="rich-text">
+      <PortableText value={block.richText} />
+    </div>
+    <!-- <Links data={block.links} /> -->
+  </div>
+</div>

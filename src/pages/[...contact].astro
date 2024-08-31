@@ -1,0 +1,38 @@
+---
+import PageBuilder from "../components/PageBuilder.astro";
+import PageHeader from "../blocks/PageHeader.astro";
+import Layout from "../layouts/Layout.astro";
+import { getPageContent } from "../utils/sanity";
+
+export async function getStaticPaths() {
+  const data = await getPageContent("contact");
+
+  const pages = data.map((page: any) => {
+    return {
+      slug: page.slug.current,
+      pageHeader: page.pageHeader,
+      pageBuilder: page.pageBuilder,
+    };
+  });
+
+  return pages.map(({ slug, pageHeader, pageBuilder }: any) => {
+    return {
+      params: { contact: slug },
+      props: { pageHeader, pageBuilder },
+    };
+  });
+}
+
+const {
+  pageHeader,
+  pageBuilder,
+}: { pageHeader: { title: string; description: string }; pageBuilder: any } =
+  Astro.props;
+
+const { blocks } = pageBuilder ?? {};
+---
+
+<Layout title={pageHeader.title}>
+  <PageHeader data={pageHeader} />
+  {pageBuilder && <PageBuilder blocks={blocks} />}
+</Layout>

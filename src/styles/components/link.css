@@ -1,0 +1,36 @@
+.link {
+  @apply inline-flex font-semibold text-black;
+
+  &::after {
+    @apply size-4;
+  }
+
+  &:hover {
+    @apply underline;
+
+    &.link--ext {
+      &::after {
+        @apply ml-3;
+      }
+    }
+  }
+
+  &--ext {
+    @apply items-center;
+    @mixin icon arrow-right;
+
+    &::after {
+      @apply ml-2 transition-all duration-300;
+    }
+  }
+
+  &--extended::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+  }
+}

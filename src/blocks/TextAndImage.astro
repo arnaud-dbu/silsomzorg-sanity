@@ -1,0 +1,44 @@
+---
+import { urlFor } from "../utils/image";
+import { Image } from "astro:assets";
+import Links from "../components/Links.astro";
+import { PortableText } from "astro-portabletext";
+import { srcSet } from "../utils/image";
+import { halfWidthSizes } from "../utils/image";
+
+const { block } = Astro.props;
+
+const imageUrl = block.showImage ? urlFor(block.image).url() : null ?? "";
+
+const alignImage =
+  block.image.imagePosition == "left" ? "lg:flex-row" : "lg:flex-row-reverse";
+---
+
+<div
+  class=`flex flex-col lg:flex-row gap-6 lg:gap-16 xl:gap-24 lg:items-center ${block.showImage ? alignImage : "" }`
+>
+  {
+    block.showImage && (
+      <div class="w-full lg:w-1/2">
+        <Image
+          sizes={halfWidthSizes()}
+          srcset={srcSet(imageUrl)}
+          width={1000}
+          height={1000}
+          src={imageUrl}
+          alt={block.image.alt ?? ""}
+          class="aspect-[4/3] object-cover img-rounded"
+        />
+      </div>
+    )
+  }
+  <div
+    class=`w-full lg:w-1/2 spacing-y ${ block.showImage ? "lg:w-1/2" : "lg:w-2/3" }`
+  >
+    <h2>{block.title}</h2>
+    <div class="rich-text">
+      <PortableText value={block.richText} />
+    </div>
+    <Links data={block.links} />
+  </div>
+</div>

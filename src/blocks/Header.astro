@@ -1,0 +1,44 @@
+---
+import { Icon } from "astro-icon/components";
+import Link from "../components/Link.astro";
+const { nav } = Astro.props;
+---
+
+<header class="absolute w-full z-10">
+  <div class="container">
+    <div class="flex items-end justify-between pt-5">
+      <!-- Logo -->
+      <a href="/">
+        <div class="sr-only">Main Navigation</div>
+        <Icon name="logo" class="w-40 h-auto" />
+      </a>
+      <!-- Navigation -->
+      <nav>
+        <ul class="items-center text-base gap-10 hidden md:flex">
+          {
+            nav.map((item: any) => (
+              <>
+                <li>
+                  <Link data={item} />
+                </li>
+                <hr class="last:hidden h-4 w-[1px] bg-black/20" />
+              </>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <!-- Language -->
+      <button
+        class="bg-secondary-100 rounded-md px-2 text-sm text-secondary-700 hidden md:block font-semibold"
+        >FR</button
+      >
+      <!-- Hamburger -->
+      <div class="tham tham-e-squeeze tham-w-7 md:hidden pb-6">
+        <div class="tham-box">
+          <div class="tham-inner"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

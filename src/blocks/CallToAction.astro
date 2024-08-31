@@ -1,0 +1,16 @@
+---
+import { PortableText } from "astro-portabletext";
+import Links from "../components/Links.astro";
+
+const { block } = Astro.props;
+---
+
+<div class="bg-primary text-white card-rounded card-padding lg:p-12 cta-shape">
+  <div class="lg:w-2/3 spacing-y">
+    <h2 class="text-white">{block.title}</h2>
+    <div class="rich-text rich-text--inverse">
+      <PortableText value={block.richText} />
+    </div>
+    <Links data={block.links} inverse />
+  </div>
+</div>

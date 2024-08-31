@@ -1,0 +1,51 @@
+---
+import { Icon } from "astro-icon/components";
+import Link from "../components/Link.astro";
+const { nav, generalInfo } = Astro.props;
+const [{ companyInfo, address }] = generalInfo;
+---
+
+<footer class="text-white section section--primary section--half">
+  <div class="container">
+    <div class="flex items-end justify-between flex-wrap gap-4">
+      <!-- Company -->
+      <div class="spacing-y">
+        <a href="/">
+          <div class="sr-only">Main Navigation</div>
+          <Icon name="logo-nl-invert" class="w-32 h-auto" />
+        </a>
+        <div class="space-y-1">
+          <div class="">{companyInfo.name}</div>
+          <div class="flex items-center gap-2">
+            <Icon name="phone" class="size-4" />
+            <a
+              class="underline hover:no-underline"
+              href=`tel:${companyInfo.phone}`>{companyInfo.phone}</a
+            >
+          </div>
+          <div class="flex items-center gap-2">
+            <Icon name="envelope" class="size-4" />
+            <a
+              class="underline hover:no-underline"
+              href=`mailto:${companyInfo.email}`>{companyInfo.email}</a
+            >
+          </div>
+        </div>
+      </div>
+      <!-- Navigation -->
+      <nav>
+        <ul
+          class="flex lg:items-center flex-col lg:flex-row text-lg gap-x-10 gap-y-2"
+        >
+          {
+            nav.map((item: any) => (
+              <li class="hover:opacity-80">
+                <Link data={item} />
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </div>
+  </div>
+</footer>

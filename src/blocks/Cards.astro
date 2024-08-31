@@ -1,0 +1,40 @@
+---
+import { Image } from "astro:assets";
+import { srcSet, urlFor } from "../utils/image";
+import { PortableText } from "astro-portabletext";
+const { block } = Astro.props;
+---
+
+<div class="spacing-y-lg">
+  <div class="spacing-y-xs md:w-1/2">
+    <div class="block-heading">
+      <span>{block.tagline}</span>
+      <h2>{block.title}</h2>
+    </div>
+    <PortableText value={block.richText} />
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    {
+      block.cards.map((card: any) => {
+        const imageUrl = urlFor(card.icon).url();
+        return (
+          <>
+            <div class="flex flex-col gap-4 bg-white p-12 border-primary-300 border">
+              <Image
+                sizes="150px"
+                srcset={srcSet(imageUrl)}
+                width={1000}
+                height={1000}
+                src={imageUrl}
+                alt={card.title}
+                class="w-24"
+              />
+              <h3 class="text-3xl ">{card.title}</h3>
+              <p class="text-lg">{card.description}</p>
+            </div>
+          </>
+        );
+      })
+    }
+  </div>
+</div>

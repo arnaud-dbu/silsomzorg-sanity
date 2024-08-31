@@ -1,0 +1,16 @@
+.section {
+  @apply py-10 md:py-16;
+
+  &--primary {
+    @apply bg-primary;
+  }
+
+  &--half {
+    @apply py-5 md:py-8 xl:py-10;
+  }
+}
+
+.section + .section,
+section--primary + section--primary {
+  padding-top: 0 !important;
+}
