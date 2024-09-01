@@ -8,17 +8,17 @@ import { halfWidthSizes } from "../utils/image";
 
 const { block } = Astro.props;
 
-const imageUrl = block.showImage ? urlFor(block.image).url() : (null ?? "");
+const imageUrl = block.image ? urlFor(block.image).url() : (null ?? "");
 
 const alignImage =
   block.image.imagePosition == "left" ? "lg:flex-row" : "lg:flex-row-reverse";
 ---
 
 <div
-  class=`flex flex-col lg:flex-row gap-6 lg:gap-16 xl:gap-24  ${block.showImage ? alignImage : "" }`
+  class=`${block.image ? "flex flex-col lg:flex-row gap-6 lg:gap-24 xl:gap-32" : ""}`
 >
-  <!-- {
-    block.showImage && (
+  {
+    block.image && (
       <div class="w-full lg:w-1/2">
         <Image
           sizes={halfWidthSizes()}
@@ -27,19 +27,23 @@ const alignImage =
           height={1000}
           src={imageUrl}
           alt={block.image.alt ?? ""}
-          class="aspect-[4/3] object-cover img-rounded"
+          class="aspect-[7/6] site-rounded object-cover "
         />
       </div>
     )
-  } -->
-  <div class="block-heading w-full lg:w-1/2">
-    <span>{block.tagline}</span>
-    <h2>{block.title}</h2>
-  </div>
-  <div class=`w-full lg:w-1/2 spacing-y `>
-    <div class="rich-text">
-      <PortableText value={block.richText} />
+  }
+  <div
+    class=`flex flex-col gap-6  ${block.image ? "w-full lg:w-1/2" : "lg:flex-row lg:gap-16 xl:gap-24" }`
+  >
+    <div class=`block-heading w-full  `>
+      <span>{block.tagline}</span>
+      <h2>{block.title}</h2>
     </div>
-    {block.links && <Links data={block.links} />}
+    <div class=`w-full ${block.image ? "" : "lg:w-1/2"} spacing-y `>
+      <div class="rich-text">
+        <PortableText value={block.richText} />
+      </div>
+      {block.links && <Links data={block.links} />}
+    </div>
   </div>
 </div>

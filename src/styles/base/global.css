@@ -55,6 +55,10 @@ p {
   background: #cc2a41;
 }
 
+.site-rounded {
+  @apply rounded-tl-[15rem] rounded-br-[15rem];
+}
+
 .block-heading {
   span {
     @apply text-primary font-medium text-2xl;
