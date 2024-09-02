@@ -1,23 +1,26 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 
-import sanity from '@sanity/astro';
-import react from '@astrojs/react'
+import sanity from "@sanity/astro";
+import react from "@astrojs/react";
 import netlify from "@astrojs/netlify";
 import tailwind from "@astrojs/tailwind";
-
-import icon from "astro-icon";;
+import { astroImageTools } from "astro-imagetools";
+import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [    sanity({
-    projectId: 'sgwzchn9',
-    dataset: 'production',
-    useCdn: false, // See note on using the CDN
-    apiVersion: "2024-08-30", // insert the current date to access the latest version of the API
-    studioBasePath: '/studio'
-  }),
-react(),
-tailwind(),
-icon(),],
-adapter: netlify()
+  integrations: [
+    astroImageTools,
+    sanity({
+      projectId: "sgwzchn9",
+      dataset: "production",
+      useCdn: false, // See note on using the CDN
+      apiVersion: "2024-08-30", // insert the current date to access the latest version of the API
+      studioBasePath: "/studio",
+    }),
+    react(),
+    tailwind(),
+    icon(),
+  ],
+  adapter: netlify(),
 });

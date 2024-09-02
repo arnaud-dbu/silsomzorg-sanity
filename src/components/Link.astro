@@ -26,8 +26,8 @@ switch (data.linkStyle) {
   case "primary":
     linkStyle = "btn btn--primary";
     break;
-  case "secondary":
-    linkStyle = "btn btn--secondary";
+  case "outline":
+    linkStyle = "btn btn--outline";
     break;
   case "link":
     linkStyle = "link";
@@ -41,5 +41,6 @@ switch (data.linkStyle) {
 <a
   class=`${linkStyle}${inverse ? "-inverse" : ""}`
   target={data.link.blank ? "_blank" : ""}
-  href={href}>{data.link.text}</a
->
+  href={href}
+  >{data.link.text}
+</a>

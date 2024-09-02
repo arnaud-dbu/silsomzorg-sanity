@@ -1,5 +1,5 @@
 .link {
-  @apply inline-flex font-semibold text-black;
+  @apply inline-flex underline  text-black;
 
   &::after {
     @apply size-4;

@@ -1,16 +1,21 @@
 ---
 import { PortableText } from "astro-portabletext";
-import Links from "../components/Links.astro";
+import { Icon } from "astro-icon/components";
+import Link from "../components/Link.astro";
 
 const { block } = Astro.props;
 ---
 
-<div class="bg-primary text-white card-rounded card-padding lg:p-12 cta-shape">
+<div class="bg-primary relative text-white box-rounded-sm p-16 cta-shape">
   <div class="lg:w-2/3 spacing-y">
     <h2 class="text-white">{block.title}</h2>
     <div class="rich-text rich-text--inverse">
       <PortableText value={block.richText} />
     </div>
-    <Links data={block.links} inverse />
+    <Link data={block.cta} inverse />
   </div>
+  <Icon
+    class="absolute -right-[105rem] -top-[45rem] w-[150rem] h-auto"
+    name="shape"
+  />
 </div>
