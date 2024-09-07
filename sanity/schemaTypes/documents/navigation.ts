@@ -1,44 +1,53 @@
-import {defineField, defineType} from 'sanity'
-import {FiLink} from 'react-icons/fi'
+import { defineField, defineType } from "sanity";
+import { FiLink } from "react-icons/fi";
 
 export default defineType({
-  name: 'navigation',
-  title: 'Navigation',
-  type: 'document',
+  name: "navigation",
+  title: "Navigation",
+  type: "document",
   fields: [
     defineField({
-      name: 'items',
-      title: 'Items',
-      type: 'array',
+      name: "items",
+      title: "Items",
+      type: "array",
       of: [
         defineField({
-          name: 'navigationItem',
-          title: 'Navigation Item',
-          type: 'object',
+          name: "navigationItem",
+          title: "Navigation Item",
+          type: "object",
           preview: {
             select: {
-              title: 'link.text',
+              title: "title",
             },
-            prepare({title}) {
+            prepare({ title }) {
               return {
-                title: title || 'No title',
+                title: title || "No title",
                 icon: FiLink,
-              }
+              };
             },
           },
           fields: [
             defineField({
-              name: 'link',
-              title: 'Link',
-              type: 'link',
-              options: {
-                enableText: true,
-                collapsed: false,
-              },
+              name: "title",
+              title: "Title",
+              type: "string",
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: "entry",
+              title: "Entry",
+              type: "reference",
+              to: [
+                { type: "blog" },
+                { type: "pages" },
+                { type: "services" },
+                { type: "practical" },
+                { type: "vision" },
+              ],
             }),
           ],
         }),
       ],
     }),
   ],
-})
+});

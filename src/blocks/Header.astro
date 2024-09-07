@@ -1,6 +1,5 @@
 ---
 import { Icon } from "astro-icon/components";
-import Link from "../components/Link.astro";
 const { nav } = Astro.props;
 ---
 
@@ -19,7 +18,7 @@ const { nav } = Astro.props;
             nav.map((item: any) => (
               <>
                 <li>
-                  <Link data={item} />
+                  <a href=`${item.entry.slug.current}`>{item.title}</a>
                 </li>
                 <hr class="last:hidden h-4 w-[1px] bg-black/20" />
               </>

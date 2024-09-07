@@ -17,10 +17,8 @@ export async function getPageContent(page: string, language?: string) {
 export async function getNavigationItems() {
   return await sanityClient.fetch(`*[_type == "navigation"] {
   items[] {
-    link {
-    ...,
-    internalLink->{_type,slug,title}
-    }
+    title,
+    entry->{_type,slug,title}
   }
 }`);
 }

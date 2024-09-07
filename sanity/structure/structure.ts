@@ -1,9 +1,12 @@
 import { GiPapers } from "react-icons/gi";
-import { IoHome } from "react-icons/io5";
-import { IoMdMail } from "react-icons/io";
+import { BiSolidDirections } from "react-icons/bi";
 import { FaGlobe } from "react-icons/fa";
 import { FaHorseHead } from "react-icons/fa";
 import { MdPhoneAndroid } from "react-icons/md";
+import { PiFileFill } from "react-icons/pi";
+import { PiFilesFill } from "react-icons/pi";
+import { ImBlog } from "react-icons/im";
+import { IoIosInformationCircle } from "react-icons/io";
 
 export const structure = (S: any) =>
   S.list()
@@ -18,7 +21,7 @@ export const structure = (S: any) =>
             .items([
               S.listItem()
                 .title("Home")
-                .icon(IoHome)
+                .icon(PiFileFill)
                 .child(
                   S.document()
                     .title("Home")
@@ -27,7 +30,7 @@ export const structure = (S: any) =>
                 ),
               S.listItem()
                 .title("Services")
-                .icon(FaHorseHead)
+                .icon(PiFileFill)
                 .child(
                   S.document()
                     .title("Services")
@@ -35,8 +38,17 @@ export const structure = (S: any) =>
                     .documentId("services")
                 ),
               S.listItem()
+                .title("Vision")
+                .icon(PiFileFill)
+                .child(
+                  S.document()
+                    .title("Vision")
+                    .schemaType("vision")
+                    .documentId("vision")
+                ),
+              S.listItem()
                 .title("Practical")
-                .icon(IoMdMail)
+                .icon(PiFileFill)
                 .child(
                   S.document()
                     .title("Practical")
@@ -45,13 +57,13 @@ export const structure = (S: any) =>
                 ),
               S.listItem()
                 .title("Pages")
-                .icon(GiPapers)
+                .icon(PiFilesFill)
                 .child(S.documentTypeList("pages").title("Page")),
             ])
         ),
       S.listItem()
         .title("Navigation")
-        .icon(IoHome)
+        .icon(BiSolidDirections)
         .child(
           S.document()
             .title("Navigation")
@@ -68,7 +80,7 @@ export const structure = (S: any) =>
             .items([
               S.listItem()
                 .title("Company Info")
-                .icon(FaGlobe)
+                .icon(IoIosInformationCircle)
                 .child(
                   S.document().title("Company Info").schemaType("companyInfo")
                 ),
@@ -78,11 +90,15 @@ export const structure = (S: any) =>
                 .child(
                   S.document().title("Social Media").schemaType("socialMedia")
                 ),
-              S.listItem()
-                .title("Services")
-                .icon(FaHorseHead)
-                .child(S.documentTypeList("service").title("Service")),
             ])
         ),
-      // S.listItem().title('Settings').child(S.document().title('Settings').schemaType('settings')),
+      S.divider(),
+      S.listItem()
+        .title("Services")
+        .icon(FaHorseHead)
+        .child(S.documentTypeList("service").title("Service")),
+      S.listItem()
+        .title("Blog")
+        .icon(ImBlog)
+        .child(S.documentTypeList("blog").title("Blog")),
     ]);

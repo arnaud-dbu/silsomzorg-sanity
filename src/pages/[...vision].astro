@@ -5,7 +5,7 @@ import Layout from "../layouts/Layout.astro";
 import { getPageContent } from "../utils/sanity";
 
 export async function getStaticPaths() {
-  const data = await getPageContent("contact");
+  const data = await getPageContent("vision");
 
   const pages = data.map((page: any) => {
     return {
@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 
   return pages.map(({ slug, pageHeader, pageBuilder }: any) => {
     return {
-      params: { contact: slug },
+      params: { vision: slug },
       props: { pageHeader, pageBuilder },
     };
   });

@@ -14,6 +14,8 @@ import services from "./documents/services";
 import service from "./documents/service";
 import companyInfo from "./documents/companyInfo";
 import socialMedia from "./documents/socialMedia";
+import blog from "./documents/blog";
+import vision from "./documents/vision";
 
 export const schemaTypes = [
   pages,
@@ -32,4 +34,6 @@ export const schemaTypes = [
   service,
   companyInfo,
   socialMedia,
+  blog,
+  vision,
 ];

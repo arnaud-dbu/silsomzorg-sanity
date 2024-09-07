@@ -12,7 +12,8 @@ interface Props {
 const generalInfo = await getGeneralInformation();
 
 const nav = await getNavigationItems();
-const items = nav.items ?? [];
+
+const { items } = nav[0];
 
 const { title } = Astro.props;
 ---
