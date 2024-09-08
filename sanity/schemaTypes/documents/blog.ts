@@ -22,6 +22,7 @@ export default defineType({
     defineField(pageTitle),
     defineField(slug),
     defineField(pageHeader),
+
     defineField(pageBuilder),
   ],
 });
