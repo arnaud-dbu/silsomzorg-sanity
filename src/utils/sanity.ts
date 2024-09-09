@@ -23,6 +23,6 @@ export async function getNavigationItems() {
 }`);
 }
 
-export async function getGeneralInformation() {
-  return await sanityClient.fetch(`*[_type == "generalInformation"]`);
+export async function getCompanyInfo() {
+  return await sanityClient.fetch(`*[_type == "companyInfo"]`);
 }

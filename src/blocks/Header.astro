@@ -1,6 +1,8 @@
 ---
 import { Icon } from "astro-icon/components";
-const { nav } = Astro.props;
+const { nav, companyInfo } = Astro.props;
+
+console.log(companyInfo);
 ---
 
 <header class="absolute w-full z-10">
@@ -13,25 +15,35 @@ const { nav } = Astro.props;
       </a>
       <!-- Navigation -->
       <nav>
-        <ul class="items-center text-base gap-10 hidden md:flex">
+        <ul class="items-center text-base gap-16 hidden md:flex">
           {
             nav.map((item: any) => (
               <>
                 <li>
-                  <a href=`${item.entry.slug.current}`>{item.title}</a>
+                  <a
+                    class="text-xl text-white"
+                    href={`${item.entry.slug.current}`}
+                  >
+                    {item.title}
+                  </a>
                 </li>
-                <hr class="last:hidden h-4 w-[1px] bg-black/20" />
               </>
             ))
           }
+          <li class="bg-primary rounded-full size-12 shadow-md">
+            <a
+              class="flex-center h-full w-full"
+              href={`mailto:${companyInfo.email}`}
+            >
+              <span class="sr-only">Contact</span>
+              <Icon name="paper-plane" class="text-white text-xl" />
+            </a>
+          </li>
         </ul>
       </nav>
 
       <!-- Language -->
-      <button
-        class="bg-secondary-100 rounded-md px-2 text-sm text-secondary-700 hidden md:block font-semibold"
-        >FR</button
-      >
+
       <!-- Hamburger -->
       <div class="tham tham-e-squeeze tham-w-7 md:hidden pb-6">
         <div class="tham-box">

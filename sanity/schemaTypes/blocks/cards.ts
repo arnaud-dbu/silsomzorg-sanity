@@ -26,10 +26,16 @@ export default defineType({
     defineField(tagline),
     defineField(title),
     defineField(richText),
+    defineField({
+      title: "Show Services",
+      name: "showServices",
+      type: "boolean",
+    }),
     {
       title: "Cards",
       name: "cards",
       type: "array",
+      hidden: ({ parent }) => parent?.showServices,
       of: [defineArrayMember(card)],
     },
   ],
