@@ -1,5 +1,5 @@
 body {
-  @apply bg-primary-100 font-base font-thin text-base md:text-lg;
+  @apply bg-primary-100 font-base font-thin text-lg lg:text-xl md:text-lg;
 }
 
 /* Typography */
@@ -14,18 +14,24 @@ h6 {
 }
 
 h1 {
-  @apply text-4xl lg:text-9xl tracking-wide;
+  font-size: clamp(2rem, 15vw, 15rem);
+  @apply tracking-wide;
+  line-height: 1;
+
+  @screen lg {
+    line-height: 0.9;
+  }
 }
 
-h2 {
+/* h2 {
   @apply text-xl sm:text-2xl xl:text-7xl;
-}
+} */
 
 h3 {
 }
 
-p {
-  @apply text-xl font-base;
+.intro {
+  @apply text-xl lg:text-2xl leading-7 lg:leading-9;
 }
 
 .rich-text {
@@ -50,8 +56,26 @@ p {
   }
 }
 
+.block-heading {
+  span {
+    @apply text-primary font-medium uppercase tracking-wide text-lg lg:text-xl xl:text-2xl;
+  }
+
+  h2 {
+    @apply text-3xl  lg:text-5xl xl:text-7xl tracking-wide text-black;
+  }
+}
+
 .rounded-edge {
-  clip-path: ellipse(110% 100% at 40% 0);
+  clip-path: ellipse(250% 100% at 40% 0);
+
+  @screen sm {
+    clip-path: ellipse(170% 100% at 40% 0);
+  }
+
+  @screen lg {
+    clip-path: ellipse(130% 100% at 40% 0);
+  }
 }
 
 .box-rounded {
@@ -60,16 +84,6 @@ p {
 
 .box-rounded-sm {
   @apply rounded-tl-[5rem] rounded-br-[5rem];
-}
-
-.block-heading {
-  span {
-    @apply text-primary font-normal text-2xl;
-  }
-
-  h2 {
-    @apply text-7xl tracking-wide text-black;
-  }
 }
 
 .gradient-overlay {
@@ -113,7 +127,7 @@ p {
 }
 
 .img-rounded {
-  @apply rounded-2xl lg:rounded-3xl;
+  @apply rounded-tl-[8rem] rounded-br-[8rem] lg:rounded-tl-[12.5rem] lg:rounded-br-[12.5rem];
 }
 
 .rounded {

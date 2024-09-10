@@ -8,21 +8,21 @@ const services = await getPageContent("service");
 ---
 
 <div class="spacing-y-lg">
-  <div class="spacing-y-xs md:w-1/2">
+  <div class="spacing-y-xs max-w-blockHeader">
     <div class="block-heading">
       <span>{block.tagline}</span>
       <h2>{block.title}</h2>
     </div>
     <PortableText value={block.richText} />
   </div>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+  <div class="grid grid-cols-1 md:grid-cols-2 md:gap-6 gap-4">
     {
       !block.showServices &&
         block.cards.map((card: any) => {
           const imageUrl = urlFor(card.icon).url();
           return (
             <>
-              <div class="flex flex-col gap-4 bg-white p-12 border-primary-300 border">
+              <div class="flex flex-col gap-4 bg-white p-12 border-primary border-4">
                 <Image
                   sizes="150px"
                   srcset={srcSet(imageUrl)}
@@ -44,7 +44,7 @@ const services = await getPageContent("service");
         services.map((card: any) => {
           return (
             <>
-              <div class="flex flex-col gap-4 bg-white p-12 border-primary-300 border">
+              <div class="flex flex-col gap-2 lg:gap-4 bg-white p-6 sm:p-8 border-primary border">
                 {/* <Image
                   sizes="150px"
                   srcset={srcSet(imageUrl)}
@@ -54,9 +54,11 @@ const services = await getPageContent("service");
                   alt={card.title}
                   class="w-24"
                 /> */}
-                <h3 class="text-3xl ">{card.overviewTitle}</h3>
+                <h3 class="text-2xl lg:text-3xl font-normal ">
+                  {card.overviewTitle}
+                </h3>
                 <p class="text-lg">{card.overviewDescription}</p>
-                <a href={`/${card.slug.current}`}>Ga naar pagina</a>
+                {/* <a href={`/${card.slug.current}`}>Ga naar pagina</a> */}
               </div>
             </>
           );

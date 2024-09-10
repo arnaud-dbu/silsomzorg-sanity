@@ -15,11 +15,11 @@ const alignImage =
 ---
 
 <div
-  class=`${block.image ? "flex flex-col lg:flex-row gap-6 lg:gap-24 xl:gap-32" : ""}`
+  class=`${block.image ? "flex flex-col md:flex-row gap-8 md:gap-10 lg:gap-12 xl:gap-16" : ""} ${alignImage} `
 >
   {
     block.image && (
-      <div class="w-full lg:w-1/2">
+      <div class="w-full lg:w-1/2 xl:w-2/5">
         <Image
           sizes={halfWidthSizes()}
           srcset={srcSet(imageUrl)}
@@ -27,13 +27,13 @@ const alignImage =
           height={1000}
           src={imageUrl}
           alt={block.image.alt ?? ""}
-          class="aspect-[7/6] box-rounded object-cover "
+          class="aspect-[7/6] img-rounded object-cover "
         />
       </div>
     )
   }
   <div
-    class=`flex flex-col gap-6  ${block.image ? "w-full lg:w-1/2" : "lg:flex-row lg:gap-16 xl:gap-24" }`
+    class=`flex flex-col gap-4  ${block.image ? "w-full lg:w-1/2 xl:w-3/5" : "lg:flex-row lg:gap-16 xl:gap-24" }`
   >
     <div class=`block-heading w-full  `>
       <span>{block.tagline}</span>

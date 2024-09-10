@@ -1,8 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
 const { nav, companyInfo } = Astro.props;
-
-console.log(companyInfo);
 ---
 
 <header class="absolute w-full z-10">
@@ -11,17 +9,17 @@ console.log(companyInfo);
       <!-- Logo -->
       <a href="/">
         <div class="sr-only">Main Navigation</div>
-        <Icon name="logo" class="w-40 h-auto" />
+        <Icon name="logo" class="w-36 lg:w-40 h-auto" />
       </a>
       <!-- Navigation -->
       <nav>
-        <ul class="items-center text-base gap-16 hidden md:flex">
+        <ul class="items-center text-base gap-12 lg:gap-16 hidden md:flex">
           {
             nav.map((item: any) => (
               <>
                 <li>
                   <a
-                    class="text-xl text-white"
+                    class="text-lg lg:text-xl text-white"
                     href={`${item.entry.slug.current}`}
                   >
                     {item.title}
@@ -30,26 +28,25 @@ console.log(companyInfo);
               </>
             ))
           }
-          <li class="bg-primary rounded-full size-12 shadow-md">
+          <li class="bg-primary rounded-full size-10 lg:size-12 shadow-md">
             <a
               class="flex-center h-full w-full"
               href={`mailto:${companyInfo.email}`}
             >
               <span class="sr-only">Contact</span>
-              <Icon name="paper-plane" class="text-white text-xl" />
+              <Icon name="paper-plane" class="text-white text-lg lg:text-xl" />
             </a>
           </li>
         </ul>
       </nav>
 
-      <!-- Language -->
-
       <!-- Hamburger -->
-      <div class="tham tham-e-squeeze tham-w-7 md:hidden pb-6">
-        <div class="tham-box">
-          <div class="tham-inner"></div>
-        </div>
-      </div>
+      <label class="burger mb-4 md:!hidden" for="burger">
+        <input type="checkbox" id="burger" />
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
     </div>
   </div>
 </header>
