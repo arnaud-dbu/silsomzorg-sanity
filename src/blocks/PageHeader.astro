@@ -5,15 +5,19 @@ const imageUrl = data.image ? urlFor(data.image).url() : null;
 ---
 
 <div
-  class="bg-primary-300 min-h-[50rem] flex bg-no-repeat bg-cover rounded-edge items-end relative"
+  class={` bg-primary-200 min-h-[30rem] pt-40 flex bg-no-repeat bg-cover rounded-edge items-end relative`}
   style=`background-image: url("${imageUrl}");`
 >
-  <div class="primary-overlay z-10"></div>
-  <div class="gradient-overlay z-20"></div>
+{
+  data.image && (
+    <div class="primary-overlay z-10"></div>
+    <div class="gradient-overlay z-20"></div>
+  )
+}
   <div class="container relative z-30">
-    <div class="relative z-10 w-full lg:w-1/2 spacing-y mb-28">
-      <h1 class="text-white">{data.title}</h1>
-      {data.description && <p class="text-white">{data.description}</p>}
+    <div class={`${data.image ? "text-white" : "text-primary"} relative z-10 w-full lg:w-1/2 spacing-y mb-28`}>
+      <h1 class="">{data.title}</h1>
+      {data.description && <p class={`${data.image ? "text-white" : "text-black"} `}>{data.description}</p>}
     </div>
   </div>
 </div>

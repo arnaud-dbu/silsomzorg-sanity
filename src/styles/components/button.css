@@ -1,5 +1,5 @@
 .btn {
-  @apply inline-block px-6 py-2 rounded-xl  font-normal tracking-wider text-base transition;
+  @apply inline-block px-4 py-2 rounded-xl font-normal tracking-wider text-base md:text-lg transition w-fit;
 
   &::after {
     @apply size-4;
@@ -18,7 +18,7 @@
   }
 
   &--outline {
-    @apply text-white hover:bg-primary-500;
+    @apply text-primary border border-primary-500 hover:bg-primary-500;
 
     &-inverse {
       @apply border border-white hover:bg-white/90;

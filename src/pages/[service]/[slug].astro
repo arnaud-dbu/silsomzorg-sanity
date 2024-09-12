@@ -10,14 +10,15 @@ export async function getStaticPaths() {
   const pages = data.map((page: any) => {
     return {
       slug: page.slug.current,
+      service: "aanbod",
       pageHeader: page.pageHeader,
       pageBuilder: page.pageBuilder,
     };
   });
 
-  return pages.map(({ slug, pageHeader, pageBuilder }: any) => {
+  return pages.map(({ slug, pageHeader, pageBuilder, service }: any) => {
     return {
-      params: { slug },
+      params: { slug, service },
       props: { pageHeader, pageBuilder },
     };
   });

@@ -58,7 +58,12 @@ const services = await getPageContent("service");
                   {card.overviewTitle}
                 </h3>
                 <p class="text-lg">{card.overviewDescription}</p>
-                {/* <a href={`/${card.slug.current}`}>Ga naar pagina</a> */}
+                <a
+                  class="btn btn--outline mt-auto"
+                  href={`/aanbod/${card.slug.current}`}
+                >
+                  Meer info
+                </a>
               </div>
             </>
           );
