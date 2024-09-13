@@ -6,6 +6,7 @@ import { ImageSupportDetection } from "astro-imagetools/components";
 
 interface Props {
   title: string;
+  shape?: boolean;
 }
 
 const nav = await getNavigationItems();
@@ -13,7 +14,7 @@ const companyInfo = await getCompanyInfo();
 
 const { items } = nav[0];
 
-const { title } = Astro.props;
+const { title, shape } = Astro.props;
 ---
 
 <!doctype html>
@@ -29,7 +30,7 @@ const { title } = Astro.props;
   </head>
   <body>
     <Header nav={items} companyInfo={companyInfo[0]} />
-    <slot />
+    <main class={`${shape && "bg-shape"}`}><slot /></main>
     <!-- <Footer nav={items} generalInfo={generalInfo} /> -->
   </body>
 </html>

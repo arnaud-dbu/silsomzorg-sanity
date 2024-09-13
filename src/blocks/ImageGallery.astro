@@ -23,8 +23,10 @@ if (length % 2 === 0) {
 <div class="w-full">
   <div class={`gap-6 grid grid-cols-1 xl:gap-10 ${grid}`}>
     {
-      block.images.map((image: any) => {
+      block.images.map((image: any, index: number) => {
         const imageUrl = urlFor(image).url();
+        const isFirst = index === 0;
+        const isLast = index === block.images.length - 1;
         return (
           <Image
             sizes={halfWidthSizes()}
@@ -33,7 +35,9 @@ if (length % 2 === 0) {
             height={1000}
             src={imageUrl}
             alt={image.alt ?? ""}
-            class={`object-cover w-full h-full img-rounded ${aspectRatio}`}
+            class={`object-cover w-full h-full  ${
+              isFirst ? "img-rounded-first" : ""
+            } ${isLast ? "img-rounded-last" : ""} ${aspectRatio}`}
           />
         );
       })

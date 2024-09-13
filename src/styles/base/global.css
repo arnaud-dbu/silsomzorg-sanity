@@ -2,6 +2,17 @@ body {
   @apply bg-primary-100 font-base font-thin text-lg lg:text-xl md:text-lg;
 }
 
+main {
+  &.bg-shape {
+    background-image: url("../icons/shape.svg");
+    width: 100vw;
+    background-size: 300%;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+  }
+}
+
 /* Typography */
 
 h1,
@@ -14,7 +25,7 @@ h6 {
 
 h1 {
   font-size: clamp(2rem, 15vw, 15rem);
-  @apply tracking-wide font-light;
+  @apply tracking-wide font-normal;
   line-height: 1;
 
   @screen lg {
@@ -127,6 +138,13 @@ h3 {
 
 .img-rounded {
   @apply rounded-tl-[8rem] rounded-br-[8rem] lg:rounded-tl-[12.5rem] lg:rounded-br-[12.5rem];
+}
+.img-rounded-first {
+  @apply rounded-tl-[8rem] lg:rounded-tl-[12.5rem];
+}
+
+.img-rounded-last {
+  @apply rounded-br-[8rem] lg:rounded-br-[12.5rem];
 }
 
 .rounded {
