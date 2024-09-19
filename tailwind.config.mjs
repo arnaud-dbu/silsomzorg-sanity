@@ -49,4 +49,4 @@ export const theme = {
     },
   },
 };
-// export const plugins = [require("tailwind-hamburgers")];
+export const plugins = [require("@tailwindcss/container-queries")];

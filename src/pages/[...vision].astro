@@ -32,7 +32,7 @@ const {
 const { blocks } = pageBuilder ?? {};
 ---
 
-<Layout title={pageHeader.title}>
+<Layout title={pageHeader.title} shape={true}>
   <PageHeader data={pageHeader} />
   {pageBuilder && <PageBuilder blocks={blocks} />}
 </Layout>

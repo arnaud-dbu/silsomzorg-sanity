@@ -1,23 +1,68 @@
 ---
 import { urlFor } from "../utils/image";
-const { data } = Astro.props;
+
+interface Props {
+  data: {
+    image?: string;
+    title: string;
+    description?: string;
+  };
+  detail?: boolean;
+}
+
+const { data, detail } = Astro.props;
 const imageUrl = data.image ? urlFor(data.image).url() : null;
 ---
 
-<div
-  class={`  min-h-[35rem] pt-40 flex bg-no-repeat bg-cover rounded-edge items-end relative`}
-  style=`background-image: url("${imageUrl}");`
->
-{
-  data.image && (
-    <div class="primary-overlay z-10"></div>
-    <div class="gradient-overlay z-20"></div>
-  )
-}
-  <div class="container relative z-30">
-    <div class={`${data.image ? "text-white" : "text-primary"} relative z-10 w-full lg:w-1/2 spacing-y mb-28`}>
-      <h1 class="">{data.title}</h1>
-      {data.description && <p class={`${data.image ? "text-white" : "text-black"} `}>{data.description}</p>}
-    </div>
+<div>
+  <div
+    class="min-h-[45rem] pt-40 flex bg-primary-200 bg-no-repeat bg-cover rounded-edge items-end relative"
+    style={imageUrl ? `background-image: url("${imageUrl}");` : ""}
+  >
+    {
+      data.image && (
+        <>
+          <div class="primary-overlay z-10" />
+          <div class="gradient-overlay-bt z-20" />
+          <div class="gradient-overlay-tb z-20" />
+        </>
+      )
+    }
+
+    {
+      !detail && (
+        <div class="container relative z-30">
+          <div
+            class={`${
+              data.image ? "text-white" : "text-primary"
+            } relative z-10 w-full lg:w-1/2 spacing-y mb-28`}
+          >
+            <h1>{data.title}</h1>
+            {data.description && (
+              <p class={data.image ? "text-white" : "text-black"}>
+                {data.description}
+              </p>
+            )}
+          </div>
+        </div>
+      )
+    }
   </div>
+
+  {
+    detail && (
+      <div class="container relative z-20 !px-0 md:!px-4">
+        <div class="relative -top-60 -mb-60 flex flex-col">
+          <div
+            class={`${
+              imageUrl ? "w-full" : "w-full max-w-[60rem]"
+            } p-6 text-white bg-primary lg:p-12 xl:p-16 space-y-4 lg:space-y-6`}
+          >
+            <h1>{data.title}</h1>
+            {data.description && <p class="intro">{data.description}</p>}
+          </div>
+        </div>
+      </div>
+    )
+  }
 </div>

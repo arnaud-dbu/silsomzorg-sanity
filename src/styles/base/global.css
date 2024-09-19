@@ -6,9 +6,9 @@ main {
   &.bg-shape {
     background-image: url("../icons/shape.svg");
     width: 100vw;
-    background-size: 300%;
+    background-size: 500rem;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: top;
     position: absolute;
   }
 }
@@ -28,9 +28,9 @@ h1 {
   @apply tracking-wide font-normal;
   line-height: 1;
 
-  @screen lg {
-    line-height: 0.9;
-  }
+  /* @screen lg {
+    line-height: 1;
+  } */
 }
 
 h2 {
@@ -96,12 +96,16 @@ h3 {
   @apply rounded-tl-[5rem] rounded-br-[5rem];
 }
 
-.gradient-overlay {
-  @apply absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-75;
+.gradient-overlay-tb {
+  @apply absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-50;
+}
+
+.gradient-overlay-bt {
+  @apply absolute inset-0 bg-gradient-to-t from-transparent to-black opacity-25;
 }
 
 .primary-overlay {
-  @apply absolute inset-0 bg-primary-500 opacity-30;
+  @apply absolute inset-0 bg-primary-500 opacity-30 saturate-[0.5];
 }
 
 .bg-img {
