@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import { urlFor } from "../utils/image";
+import image from "../../sanity/schemaTypes/objects/image";
 
 interface HeroProps {
   hero: {
@@ -27,10 +28,7 @@ interface HeroProps {
 
 const { hero } = Astro.props as HeroProps;
 
-// Use Sanity's urlFor to generate the image URL with hotspot and crop
-const imageUrl = urlFor(hero.image).focalPoint(0, 0.8).url();
-
-console.log(hero.image);
+const imageUrl = urlFor(hero.image).url();
 ---
 
 <section class="relative overflow-x-clip">
@@ -49,8 +47,8 @@ console.log(hero.image);
       </p>
     </div>
     <div
-      style={`background-image: url("${imageUrl}");`}
-      class="absolute inset-0 bg-no-repeat bg-cover grayscale"
+      style={`background-image: url("${imageUrl}");background-position: ${(hero.image.hotspot?.x ?? 0.5) * 100}% ${(hero.image.hotspot?.y ?? 0.5) * 100}%;`}
+      class={`absolute inset-0 bg-no-repeat bg-cover grayscale `}
     >
     </div>
   </div>

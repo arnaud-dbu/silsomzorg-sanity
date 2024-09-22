@@ -1,17 +1,14 @@
 .link {
-  @apply inline-flex underline  text-black;
+  @apply relative text-center;
 
   &::after {
-    @apply size-4;
+    @apply bg-primary-600 absolute -bottom-1 h-[2px] left-1/2 -translate-x-1/2 w-4/5 transition-transform scale-0;
+    content: "";
   }
 
   &:hover {
-    @apply underline;
-
-    &.link--ext {
-      &::after {
-        @apply ml-3;
-      }
+    &::after {
+      @apply scale-100;
     }
   }
 
