@@ -111,7 +111,7 @@ h2 {
 }
 
 .spacing-y {
-  @apply space-y-2 lg:space-y-4;
+  @apply space-y-4 lg:space-y-6;
 }
 
 .spacing-y-sm {

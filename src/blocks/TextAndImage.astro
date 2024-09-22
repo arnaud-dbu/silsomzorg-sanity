@@ -40,11 +40,11 @@ const alignImage =
   <div
     class=`flex flex-col gap-4  ${block.image ? "w-full lg:w-1/2 xl:w-3/5" : "lg:flex-row lg:gap-16 xl:gap-24" }`
   >
-    <div class=`block-heading w-full  `>
-      <span>{block.tagline}</span>
-      <h2>{block.title}</h2>
-    </div>
     <div class=`w-full ${block.image ? "" : "lg:w-1/2"} spacing-y `>
+      <div class=`block-heading w-full`>
+        <span>{block.tagline}</span>
+        <h2>{block.title}</h2>
+      </div>
       <div class="rich-text">
         <PortableText value={block.richText} />
       </div>

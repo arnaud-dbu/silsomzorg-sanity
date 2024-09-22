@@ -1,5 +1,5 @@
 .btn {
-  @apply inline-block px-4 py-2 rounded-full font-normal tracking-wider text-base md:text-lg transition w-fit;
+  @apply inline-block px-5 py-2 rounded-full font-normal tracking-wider text-base md:text-lg transition w-fit;
 
   &::after {
     @apply size-4;
