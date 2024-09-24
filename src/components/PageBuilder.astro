@@ -6,37 +6,30 @@ import TextAndMap from "../blocks/TextAndMap.astro";
 import Quote from "../blocks/Quote.astro";
 import ImageGallery from "../blocks/ImageGallery.astro";
 
+const components = {
+  textAndImage: TextAndImage,
+  textAndMap: TextAndMap,
+  callToAction: CallToAction,
+  cards: Cards,
+  quote: Quote,
+  imageGallery: ImageGallery,
+};
+
 const { blocks } = Astro.props;
 ---
 
 <div>
   {
-    blocks.map((block: any, index: number) => {
-      switch (block._type) {
-        case "textAndImage":
-          block = <TextAndImage block={block} />;
-          break;
-        case "textAndMap":
-          block = <TextAndMap block={block} />;
-          break;
-        case "callToAction":
-          block = <CallToAction block={block} />;
-          break;
-        case "cards":
-          block = <Cards block={block} />;
-          break;
-        case "quote":
-          block = <Quote block={block} />;
-          break;
-        case "imageGallery":
-          block = <ImageGallery block={block} />;
-          break;
-        default:
-          block = null;
-      }
-      return block ? (
-        <section class={`section section--default `}>
-          <div class="container">{block}</div>
+    blocks.map((block: { fullWidth: any; _type: keyof typeof components }) => {
+      const Component = components[block._type];
+
+      console.log(block);
+
+      return Component ? (
+        <section class={`section `}>
+          <div class={`container ${block.fullWidth ? "!p-0" : ""}`}>
+            <Component block={block} />
+          </div>
         </section>
       ) : null;
     })

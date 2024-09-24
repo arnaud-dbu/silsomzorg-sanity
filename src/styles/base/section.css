@@ -1,8 +1,8 @@
 .section {
   @apply py-10 md:py-16 lg:py-20;
 
-  &--primary {
-    @apply bg-primary;
+  &--light {
+    @apply bg-primary-300;
   }
 
   &--half {
@@ -11,6 +11,6 @@
 }
 
 .section + .section,
-section--primary + section--primary {
+section--light + section--light {
   padding-top: 0 !important;
 }

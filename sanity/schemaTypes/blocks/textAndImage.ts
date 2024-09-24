@@ -3,7 +3,6 @@ import { PiTextTFill } from "react-icons/pi";
 import title from "../objects/title";
 import richText from "../objects/richText";
 import backgroundColor from "../objects/backgroundColor";
-import showImage from "../objects/showImage";
 import links from "../objects/links";
 import tagline from "../objects/tagline";
 
@@ -30,6 +29,14 @@ export default defineType({
     defineField(title),
     defineField(richText),
     defineField(links),
+    defineField({
+      title: "Full Width",
+      name: "fullWidth",
+      type: "boolean",
+      options: {
+        layout: "switch",
+      },
+    }),
     defineField({
       name: "image",
       type: "image",

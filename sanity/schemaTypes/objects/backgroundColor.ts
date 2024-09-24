@@ -2,11 +2,11 @@ export default {
   name: "backgroundColor",
   title: "Background Color",
   type: "string",
-  initialValue: "Light",
+  initialValue: "default",
   options: {
     list: [
-      { title: "Light", value: "Light" },
-      { title: "Dark", value: "Dark" },
+      { title: "Default", value: "default" },
+      { title: "Light", value: "light" },
     ],
     layout: "radio",
     direction: "horizontal",

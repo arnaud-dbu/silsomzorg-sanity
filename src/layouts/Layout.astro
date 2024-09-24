@@ -2,8 +2,6 @@
 import Header from "../blocks/Header.astro";
 import { getCompanyInfo, getNavigationItems } from "../utils/sanity";
 
-import { ImageSupportDetection } from "astro-imagetools/components";
-
 interface Props {
   title: string;
   shape?: boolean;
@@ -25,7 +23,6 @@ const { title, shape } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <ImageSupportDetection />
     <title>{title} | Silsomzorg</title>
   </head>
   <body>
@@ -34,6 +31,7 @@ const { title, shape } = Astro.props;
     <!-- <Footer nav={items} generalInfo={generalInfo} /> -->
   </body>
 </html>
+<script src="../scripts/main.ts"></script>
 <style is:global>
   @import "../styles/base/fonts.css";
   @import "../styles/base/mixins.css";
