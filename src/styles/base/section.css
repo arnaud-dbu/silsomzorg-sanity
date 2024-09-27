@@ -5,12 +5,17 @@
     @apply bg-primary-300;
   }
 
+  &--primary {
+    @apply bg-primary;
+  }
+
   &--half {
     @apply py-5 md:py-8 xl:py-10;
   }
 }
 
 .section + .section,
-section--light + section--light {
+section--light + section--light,
+section--primary + section--primary {
   padding-top: 0 !important;
 }

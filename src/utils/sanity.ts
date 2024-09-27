@@ -5,13 +5,27 @@ import { sanityClient } from "sanity:client";
 // }
 
 export async function getPageContent(page: string, language?: string) {
-  if (language) {
-    return await sanityClient.fetch(
-      `*[_type == "${page}" && language == "${language}"]`
-    );
-  } else {
-    return await sanityClient.fetch(`*[_type == "${page}"]`);
-  }
+  const baseQuery = `*[_type == "${page}"]{
+    ...,
+  link {
+    ...,
+    internalLink->{_type,slug,title}
+  },
+  }`;
+
+  const languageFilter = language ? `&& language == "${language}"` : "";
+  const fullQuery = `${baseQuery}${languageFilter}`;
+
+  return await sanityClient.fetch(fullQuery);
+}
+
+export async function getInternalLinkDetails(referenceId: string) {
+  return await sanityClient.fetch(
+    `*[_id == $referenceId][0]{
+    "slug": slug.current,
+  }`,
+    { referenceId }
+  );
 }
 
 export async function getNavigationItems() {
@@ -24,5 +38,9 @@ export async function getNavigationItems() {
 }
 
 export async function getCompanyInfo() {
+  return await sanityClient.fetch(`*[_type == "companyInfo"]`);
+}
+
+export async function getSocialMedia() {
   return await sanityClient.fetch(`*[_type == "companyInfo"]`);
 }

@@ -1,7 +1,10 @@
 ---
+import { getInternalLinkDetails } from "../utils/sanity";
+
 const { data, inverse } = Astro.props;
 
 let href;
+let internalLinkDetails;
 
 switch (data.link.type) {
   case "email":
@@ -14,7 +17,10 @@ switch (data.link.type) {
     href = data.link.url;
     break;
   case "internal":
-    href = `/${data.link.internalLink.slug.current}`;
+    internalLinkDetails = await getInternalLinkDetails(
+      data.link.internalLink._ref
+    );
+    href = internalLinkDetails ? `/${internalLinkDetails.slug}` : "#";
     break;
   default:
     href = "#"; // Default value if none of the types match

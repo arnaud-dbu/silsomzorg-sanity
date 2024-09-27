@@ -1,16 +1,15 @@
+/* general */
+
 body {
   @apply bg-primary-100 font-base font-light text-lg lg:text-xl md:text-lg;
 }
 
-main {
-  &.bg-shape {
-    background-image: url("../icons/shape.svg");
-    width: 100vw;
-    background-size: 500rem;
-    background-repeat: no-repeat;
-    background-position: top;
-    position: absolute;
-  }
+.bg-shape {
+  background-image: url("../icons/shape.svg");
+  width: 100vw;
+  background-size: 500rem;
+  background-repeat: no-repeat;
+  background-position: top;
 }
 
 /* Typography */
@@ -42,8 +41,36 @@ h2 {
   @apply text-xl lg:text-2xl leading-7 lg:leading-9;
 }
 
+.block-heading {
+  span {
+    @apply text-primary font-medium tracking-wide text-lg lg:text-xl xl:text-2xl;
+  }
+
+  h2 {
+    @apply text-3xl  lg:text-5xl xl:text-7xl tracking-wide text-black;
+  }
+}
+
+/* Rich text */
+
 .rich-text {
   @apply spacing-y-xs;
+
+  ul {
+    @apply list-disc list-inside;
+
+    li::marker {
+      @apply text-primary;
+    }
+  }
+
+  ol {
+    @apply list-decimal list-inside;
+
+    li::marker {
+      @apply text-primary font-semibold;
+    }
+  }
 
   &--inverse {
     a {
@@ -56,7 +83,7 @@ h2 {
   }
 
   a {
-    @apply underline hover:no-underline font-semibold text-primary-500;
+    @apply underline hover:no-underline font-medium text-primary;
   }
 
   h3 {
@@ -64,15 +91,7 @@ h2 {
   }
 }
 
-.block-heading {
-  span {
-    @apply text-primary font-medium tracking-wide text-lg lg:text-xl xl:text-2xl;
-  }
-
-  h2 {
-    @apply text-3xl  lg:text-5xl xl:text-7xl tracking-wide text-black;
-  }
-}
+/* Utils */
 
 .rounded-edge {
   clip-path: ellipse(250% 100% at 40% 0);
@@ -156,15 +175,3 @@ h2 {
 .card-rounded {
   @apply rounded-3xl lg:rounded-[2.25rem];
 }
-
-/* .cta-shape {
-  @apply relative overflow-clip;
-
-  &::before {
-    @apply absolute bg-no-repeat  right-0 top-0 h-full lg:w-2/5;
-    content: "";
-    background-position: 100% 200%;
-    background-size: cover;
-    background-image: url("../icons/shape-2.svg");
-  }
-} */

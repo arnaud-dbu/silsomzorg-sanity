@@ -26,13 +26,16 @@ export async function getStaticPaths() {
 const {
   pageHeader,
   pageBuilder,
-}: { pageHeader: { title: string; description: string }; pageBuilder: any } =
-  Astro.props;
+}: {
+  pageHeader: { title: string; description: string };
+  pageBuilder: any;
+  shape: any;
+} = Astro.props;
 
 const { blocks } = pageBuilder ?? {};
 ---
 
-<Layout title={pageHeader.title} shape={true}>
+<Layout title={pageHeader.title} shape>
   <PageHeader data={pageHeader} />
   {pageBuilder && <PageBuilder blocks={blocks} />}
 </Layout>

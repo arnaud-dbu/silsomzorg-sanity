@@ -32,18 +32,19 @@ const {
 const { blocks } = pageBuilder ?? {};
 ---
 
-<Layout title={pageHeader.title} shape />
-<PageHeader data={pageHeader} />
-<div class="container">
-  <iframe
-    class="w-full h-[30rem] relative -top-20 -mb-20"
-    style="border:0"
-    loading="lazy"
-    allowfullscreen
-    referrerpolicy="no-referrer-when-downgrade"
-    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyALyRKX76qq098gtLj1RsNVMkIuQFru2BI
+<Layout title={pageHeader.title} shape>
+  <PageHeader data={pageHeader} />
+  <div class="container">
+    <iframe
+      class="w-full h-[30rem] relative -top-20 -mb-20 rounded-2xl"
+      style="border:0"
+      loading="lazy"
+      allowfullscreen
+      referrerpolicy="no-referrer-when-downgrade"
+      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyALyRKX76qq098gtLj1RsNVMkIuQFru2BI
     &q=Olmenhoekstraat+41a,Erps-Kwerps"
-  >
-  </iframe>
-</div>
-{pageBuilder && <PageBuilder blocks={blocks} />}
+    >
+    </iframe>
+  </div>
+  {pageBuilder && <PageBuilder blocks={blocks} />}
+</Layout>

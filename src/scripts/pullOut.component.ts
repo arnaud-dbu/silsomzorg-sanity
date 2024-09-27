@@ -3,7 +3,6 @@ export class PullOutComponent {
     if (document.querySelectorAll(".js-pull-out").length > 0) {
       this.pullOutBlocks();
       window.addEventListener("resize", this.pullOutBlocks.bind(this));
-      console.log("test");
     }
   }
 

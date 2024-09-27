@@ -23,8 +23,6 @@ const { blocks } = Astro.props;
     blocks.map((block: { fullWidth: any; _type: keyof typeof components }) => {
       const Component = components[block._type];
 
-      console.log(block);
-
       return Component ? (
         <section class={`section `}>
           <div class={`container ${block.fullWidth ? "!p-0" : ""}`}>

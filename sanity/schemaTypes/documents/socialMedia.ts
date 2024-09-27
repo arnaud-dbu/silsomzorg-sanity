@@ -25,12 +25,12 @@ export default defineType({
     },
     {
       title: "LinkedIn",
-      name: "linkedIn",
+      name: "linkedin",
       type: "url",
     },
     {
       title: "YouTube",
-      name: "youTube",
+      name: "youtube",
       type: "url",
     },
   ],

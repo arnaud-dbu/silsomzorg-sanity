@@ -16,7 +16,7 @@ const imageUrl = data.image ? urlFor(data.image).url() : null;
 
 <div>
   <div
-    class="min-h-[45rem] pt-40 flex bg-primary-200 bg-no-repeat bg-cover rounded-edge items-end relative"
+    class="min-h-[45rem] pt-40 flex bg-primary-200 bg-no-repeat bg-cover bg-fixed rounded-edge items-end relative"
     style={imageUrl ? `background-image: url("${imageUrl}");` : ""}
   >
     {

@@ -1,6 +1,11 @@
 ---
+import Footer from "../blocks/Footer.astro";
 import Header from "../blocks/Header.astro";
-import { getCompanyInfo, getNavigationItems } from "../utils/sanity";
+import {
+  getCompanyInfo,
+  getNavigationItems,
+  getSocialMedia,
+} from "../utils/sanity";
 
 interface Props {
   title: string;
@@ -9,6 +14,7 @@ interface Props {
 
 const nav = await getNavigationItems();
 const companyInfo = await getCompanyInfo();
+const socialMedia = await getSocialMedia();
 
 const { items } = nav[0];
 
@@ -27,8 +33,14 @@ const { title, shape } = Astro.props;
   </head>
   <body>
     <Header nav={items} companyInfo={companyInfo[0]} />
-    <main class={`${shape && "bg-shape"}`}><slot /></main>
-    <!-- <Footer nav={items} generalInfo={generalInfo} /> -->
+    <main class={`${shape && "bg-shape"}`}>
+      <slot />
+    </main>
+    <Footer
+      nav={items}
+      companyInfo={companyInfo[0]}
+      socialMedia={socialMedia[0]}
+    />
   </body>
 </html>
 <script src="../scripts/main.ts"></script>

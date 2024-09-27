@@ -12,7 +12,14 @@ export default defineConfig({
   plugins: [
     structureTool({ structure }),
     linkField({
-      linkableSchemaTypes: ["pages", "home", "practical", "services"],
+      linkableSchemaTypes: [
+        "pages",
+        "home",
+        "practical",
+        "services",
+        "service",
+        "vision",
+      ],
     }),
     visionTool(),
     media(),

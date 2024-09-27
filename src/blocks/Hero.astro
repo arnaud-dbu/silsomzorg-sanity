@@ -48,7 +48,7 @@ const imageUrl = urlFor(hero.image).url();
     </div>
     <div
       style={`background-image: url("${imageUrl}");background-position: ${(hero.image.hotspot?.x ?? 0.5) * 100}% ${(hero.image.hotspot?.y ?? 0.5) * 100}%;`}
-      class={`absolute inset-0 bg-no-repeat bg-cover grayscale `}
+      class={`absolute bg-fixed inset-0 bg-no-repeat bg-cover grayscale `}
     >
     </div>
   </div>
