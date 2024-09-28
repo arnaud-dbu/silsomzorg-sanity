@@ -1,5 +1,4 @@
 import { defineField, defineType } from "sanity";
-import links from "../objects/links";
 import description from "../objects/description";
 
 export default defineType({

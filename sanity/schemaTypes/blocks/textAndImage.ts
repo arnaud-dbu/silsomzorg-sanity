@@ -2,7 +2,6 @@ import { defineField, defineType } from "sanity";
 import { PiTextTFill } from "react-icons/pi";
 import title from "../objects/title";
 import richText from "../objects/richText";
-import backgroundColor from "../objects/backgroundColor";
 import links from "../objects/links";
 import tagline from "../objects/tagline";
 
