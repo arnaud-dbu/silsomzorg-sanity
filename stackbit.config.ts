@@ -14,7 +14,7 @@ export default defineStackbitConfig({
         "skhWJmv11z65x0MBmibgFKVe74uQHtPZe473td2Z2YZUeBU7BovcZDnLNaAFq3oOTBFzSMIw0hesQzCWKopjUIqHRnvQp65zIX8dvELWA6KTXfdAjj98QiikhRZDOCnyN6XAGJyqHKDL7E9oJdLYCYnKwDvQeMMTk0VdFfxBn9BYis2W9dnu",
       dataset: "production",
       rootPath: __dirname,
-      studioPath: path.resolve(__dirname, "studio"),
+      studioPath: "/studio",
       studioUrl: process.env.SANITY_STUDIO_URL || "",
     }),
   ],
