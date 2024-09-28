@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../stackbit.config.ts"],
+  "sourcesContent": ["import { SanityContentSource } from \"@stackbit/cms-sanity\";\nimport path from \"path\";\n\nimport { defineStackbitConfig } from \"@stackbit/types\";\n\nexport default defineStackbitConfig({\n  stackbitVersion: \"~0.6.0\",\n  nodeVersion: \"18\",\n  ssgName: \"astro\",\n  contentSources: [\n    new SanityContentSource({\n      projectId: process.env.SANITY_PROJECT_ID!,\n      token: process.env.SANITY_ACCESS_TOKEN!,\n      dataset: process.env.SANITY_DATASET || \"production\",\n      rootPath: __dirname,\n      studioPath: path.resolve(__dirname),\n      studioUrl: process.env.SANITY_STUDIO_URL || \"\",\n    }),\n  ],\n  postInstallCommand: \"npm i --no-save @stackbit/types @stackbit/cms-sanity\",\n});\ns;\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,wBAAoC;AACpC,kBAAiB;AAEjB,mBAAqC;AAErC,IAAO,8BAAQ,mCAAqB;AAAA,EAClC,iBAAiB;AAAA,EACjB,aAAa;AAAA,EACb,SAAS;AAAA,EACT,gBAAgB;AAAA,IACd,IAAI,sCAAoB;AAAA,MACtB,WAAW,QAAQ,IAAI;AAAA,MACvB,OAAO,QAAQ,IAAI;AAAA,MACnB,SAAS,QAAQ,IAAI,kBAAkB;AAAA,MACvC,UAAU;AAAA,MACV,YAAY,YAAAA,QAAK,QAAQ,kDAAS;AAAA,MAClC,WAAW,QAAQ,IAAI,qBAAqB;AAAA,IAC9C,CAAC;AAAA,EACH;AAAA,EACA,oBAAoB;AACtB,CAAC;AACD;",
+  "names": ["path"]
+}

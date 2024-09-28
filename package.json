@@ -19,6 +19,7 @@
     "@sanity/client": "^6.21.3",
     "@sanity/image-url": "^1.0.2",
     "@sanity/orderable-document-list": "^1.2.2",
+    "@sanity/validation": "^3.14.4",
     "@sanity/vision": "^3.56.0",
     "@sanity/visual-editing": "^2.1.9",
     "@stackbit/cms-sanity": "^0.2.72",
