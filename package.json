@@ -31,6 +31,7 @@
     "astro-imagetools": "^0.9.0",
     "astro-portabletext": "^0.10.0",
     "concurrently": "^8.2.2",
+    "dotenv": "^16.4.5",
     "postcss": "^8.4.41",
     "postcss-mixins": "^10.0.1",
     "postcss-nested": "^6.2.0",
