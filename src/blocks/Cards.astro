@@ -16,7 +16,7 @@ const services = await getPageContent("service");
     </div>
     <PortableText value={block.richText} />
   </div>
-  <div class="grid grid-cols-1 md:grid-cols-2 md:gap-6 gap-4">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:gap-6 gap-4">
     {
       !block.showServices &&
         block.cards.map((card: any) => {
@@ -34,7 +34,7 @@ const services = await getPageContent("service");
                   alt={card.title}
                   class="w-24"
                 />
-                <h3 class="text-3xl ">{card.title}</h3>
+                <h3 class=" ">{card.title}</h3>
                 <p class="text-lg">{card.description}</p>
               </div>
             </>

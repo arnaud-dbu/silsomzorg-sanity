@@ -44,5 +44,10 @@ export default defineType({
       ...overviewImage,
       group: "overview",
     }),
+    defineField({
+      title: "orderRank",
+      name: "orderRank",
+      type: "string",
+    }),
   ],
 });

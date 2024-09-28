@@ -1,6 +1,8 @@
 ---
 import Footer from "../blocks/Footer.astro";
 import Header from "../blocks/Header.astro";
+import Flyout from "../components/Flyout.astro";
+
 import {
   getCompanyInfo,
   getNavigationItems,
@@ -32,6 +34,7 @@ const { title, shape } = Astro.props;
     <title>{title} | Silsomzorg</title>
   </head>
   <body>
+    <Flyout nav={items} companyInfo={companyInfo[0]} />
     <Header nav={items} companyInfo={companyInfo[0]} />
     <main class={`${shape && "bg-shape"}`}>
       <slot />

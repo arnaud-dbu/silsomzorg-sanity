@@ -3,9 +3,13 @@ import { urlFor } from "../utils/image";
 
 interface Props {
   data: {
-    image?: string;
+    image?: any;
     title: string;
     description?: string;
+    hotspot?: {
+      x: number;
+      y: number;
+    };
   };
   detail?: boolean;
 }
@@ -16,8 +20,10 @@ const imageUrl = data.image ? urlFor(data.image).url() : null;
 
 <div>
   <div
-    class="min-h-[45rem] pt-40 flex bg-primary-200 bg-no-repeat bg-cover bg-fixed rounded-edge items-end relative"
-    style={imageUrl ? `background-image: url("${imageUrl}");` : ""}
+    class="min-h-[45rem] md:min-h-[40rem] pt-40 flex bg-primary-200 bg-no-repeat bg-cover grayscale bg-fixed rounded-edge items-end relative"
+    style={imageUrl
+      ? `background-image: url("${imageUrl}");background-position: ${(data.image?.hotspot?.x ?? 0.5) * 100}% ${(data.image?.hotspot?.y ?? 0.5) * 100}%;`
+      : ""}
   >
     {
       data.image && (
@@ -34,8 +40,8 @@ const imageUrl = data.image ? urlFor(data.image).url() : null;
         <div class="container relative z-30">
           <div
             class={`${
-              data.image ? "text-white" : "text-primary"
-            } relative z-10 w-full lg:w-1/2 spacing-y mb-28`}
+              data.image ? "text-primary-200" : "text-primary"
+            }  relative z-10 w-full lg:w-1/2 spacing-y mb-28`}
           >
             <h1>{data.title}</h1>
             {data.description && (
@@ -56,10 +62,14 @@ const imageUrl = data.image ? urlFor(data.image).url() : null;
           <div
             class={`${
               imageUrl ? "w-full" : "w-full max-w-[60rem]"
-            } p-6 text-white bg-primary lg:p-12 xl:p-16 space-y-4 lg:space-y-6`}
+            } ${detail ? "text-center" : ""} p-6 text-white bg-primary lg:p-12 xl:p-16 space-y-4 lg:space-y-6`}
           >
-            <h1>{data.title}</h1>
-            {data.description && <p class="intro">{data.description}</p>}
+            <h1 class="text-4xl sm:text-7xl md:text-8xl lg:text-9xl">
+              {data.title}
+            </h1>
+            {data.description && (
+              <p class="text-lg md:text-xl">{data.description}</p>
+            )}
           </div>
         </div>
       </div>

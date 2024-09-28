@@ -24,8 +24,8 @@ h6 {
 }
 
 h1 {
-  font-size: clamp(2rem, 15vw, 15rem);
-  @apply tracking-wide;
+  font-size: clamp(2rem, 16vw, 15rem);
+  @apply tracking-wide font-light;
   line-height: 1;
 
   /* @screen lg {
@@ -34,11 +34,15 @@ h1 {
 }
 
 h2 {
-  @apply text-3xl  lg:text-5xl xl:text-7xl tracking-wide;
+  @apply text-3xl font-medium lg:text-5xl xl:text-7xl tracking-wide;
+}
+
+h3 {
+  @apply font-medium text-2xl lg:text-3xl;
 }
 
 .intro {
-  @apply text-xl lg:text-2xl leading-7 lg:leading-9;
+  @apply text-lg sm:text-xl lg:text-2xl;
 }
 
 .block-heading {
@@ -57,7 +61,7 @@ h2 {
   @apply spacing-y-xs;
 
   ul {
-    @apply list-disc list-inside;
+    @apply list-disc space-y-1 list-inside;
 
     li::marker {
       @apply text-primary;
@@ -174,4 +178,8 @@ h2 {
 
 .card-rounded {
   @apply rounded-3xl lg:rounded-[2.25rem];
+}
+
+.js-hidden {
+  @apply hidden;
 }

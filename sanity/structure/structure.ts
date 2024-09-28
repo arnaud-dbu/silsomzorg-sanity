@@ -7,8 +7,9 @@ import { PiFileFill } from "react-icons/pi";
 import { PiFilesFill } from "react-icons/pi";
 import { ImBlog } from "react-icons/im";
 import { IoIosInformationCircle } from "react-icons/io";
+import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
 
-export const structure = (S: any) =>
+export const structure = (S: any, context: any) =>
   S.list()
     .title("Silsomzorg")
     .items([
@@ -70,7 +71,6 @@ export const structure = (S: any) =>
             .schemaType("navigation")
             .documentId("navigation")
         ),
-
       S.listItem()
         .title("General Information")
         .icon(FaGlobe)
@@ -93,10 +93,13 @@ export const structure = (S: any) =>
             ])
         ),
       S.divider(),
-      S.listItem()
-        .title("Services")
-        .icon(FaHorseHead)
-        .child(S.documentTypeList("service").title("Service")),
+      orderableDocumentListDeskItem({
+        type: "service",
+        title: "Services",
+        icon: FaHorseHead,
+        S,
+        context,
+      }),
       S.listItem()
         .title("Blog")
         .icon(ImBlog)

@@ -28,13 +28,16 @@ export const theme = {
         900: "#673d35",
         950: "#371d18",
       },
+      secondary: {
+        DEFAULT: "#233D4D",
+      },
     },
     fontSize: {
       xs: ["0.75rem", "1rem"], // 12px - 16px
       sm: ["0.875rem", "1.25rem"], // 14px - 20px
-      base: ["1rem", "1.5rem"], // 16px - 24px
-      lg: ["1.2rem", "1.25"], // 18px - 28px
-      xl: ["1.425rem", "1.25"], // 20px - 28px
+      base: ["1rem", "1.2"], // 16px - 24px
+      lg: ["1.2rem", "1.2"], // 18px - 28px
+      xl: ["1.425rem", "1.2"], // 20px - 28px
       "2xl": ["1.75rem", "2.125rem"], // 24px - 32px
       "3xl": ["2.625rem", "1"], // 30px - 36px
       "4xl": ["3.5rem", "3.875rem"], // 36px - 40px
@@ -43,6 +46,7 @@ export const theme = {
       "7xl": ["4.5rem", ".9"], // 72px - 1
       "8xl": ["6rem", "1"], // 96px - 1
       "9xl": ["8rem", "1"], // 128px - 1
+      "10xl": ["10rem", "1"], // 128px - 1
     },
     maxWidth: {
       blockHeader: "50rem",

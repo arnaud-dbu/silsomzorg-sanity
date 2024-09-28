@@ -5,17 +5,15 @@ import { sanityClient } from "sanity:client";
 // }
 
 export async function getPageContent(page: string, language?: string) {
-  const baseQuery = `*[_type == "${page}"]{
-    ...,
-  link {
-    ...,
-    internalLink->{_type,slug,title}
-  },
-  }`;
-
+  let baseQuery = `*[_type == "${page}"]`;
   const languageFilter = language ? `&& language == "${language}"` : "";
-  const fullQuery = `${baseQuery}${languageFilter}`;
 
+  // Add ordering for service type
+  if (page === "service") {
+    baseQuery += "|order(orderRank)";
+  }
+
+  const fullQuery = `${baseQuery}${languageFilter}`;
   return await sanityClient.fetch(fullQuery);
 }
 
@@ -42,5 +40,5 @@ export async function getCompanyInfo() {
 }
 
 export async function getSocialMedia() {
-  return await sanityClient.fetch(`*[_type == "companyInfo"]`);
+  return await sanityClient.fetch(`*[_type == "socialMedia"]`);
 }

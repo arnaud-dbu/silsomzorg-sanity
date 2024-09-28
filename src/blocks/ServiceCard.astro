@@ -27,14 +27,16 @@ const imageUrl = card.pageHeader.image
     <div
       class="p-6 bg-white sm:p-8 flex flex-col gap-2 lg:gap-4 @lg:w-fit h-full"
     >
-      <h3 class="text-2xl lg:text-3xl">{card.overviewTitle}</h3>
+      <h3 class="">{card.overviewTitle}</h3>
       <p class="text-lg">{card.overviewDescription}</p>
-      <a
-        class="btn btn--outline link--extended mt-auto"
-        href={`/aanbod/${card.slug.current}`}
-      >
-        Meer info
-      </a>
+      <div class="mt-auto pt-4">
+        <a
+          class="btn btn--outline link--extended"
+          href={`/aanbod/${card.slug.current}`}
+        >
+          Meer info
+        </a>
+      </div>
     </div>
   </div>
 </div>

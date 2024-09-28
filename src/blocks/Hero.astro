@@ -39,15 +39,15 @@ const imageUrl = urlFor(hero.image).url();
     <div class="gradient-overlay-bt z-20"></div>
     <div class="gradient-overlay-tb z-20"></div>
     <div
-      class="text-white px-10 text-center lg:text-start container lg:mb-28 relative z-30"
+      class="text-white px-10 flex flex-col gap-2 md:gap-0 items-center lg:items-start text-center lg:text-start container lg:mb-28 relative z-30"
     >
       <h1 class="text-white">Silsomzorg</h1>
-      <p class="intro lg:w-1/2">
+      <p class="intro sm:w-2/3 lg:w-1/2">
         {hero.description}
       </p>
     </div>
     <div
-      style={`background-image: url("${imageUrl}");background-position: ${(hero.image.hotspot?.x ?? 0.5) * 100}% ${(hero.image.hotspot?.y ?? 0.5) * 100}%;`}
+      style={`background-image: url("${imageUrl}");background-position: ${(hero.image.hotspot?.x ?? 0.5) * 100}% ${(hero.image.hotspot?.y ?? 0.5) * 100}%; `}
       class={`absolute bg-fixed inset-0 bg-no-repeat bg-cover grayscale `}
     >
     </div>

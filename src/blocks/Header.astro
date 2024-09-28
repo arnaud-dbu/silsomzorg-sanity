@@ -42,17 +42,14 @@ const { nav, companyInfo } = Astro.props;
         </ul>
       </nav>
       <!-- Hamburger -->
-      <label
-        class="burger
-                mb-4
-                md:!hidden"
-        for="burger"
-      >
-        <input type="checkbox" id="burger" />
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
     </div>
   </div>
 </header>
+<div class="absolute right-4 top-14 z-40">
+  <label class="burger md:!hidden" for="burger">
+    <input type="checkbox" id="burger" />
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+</div>
