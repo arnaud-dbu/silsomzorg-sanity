@@ -9,9 +9,10 @@ export default defineStackbitConfig({
   ssgName: "astro",
   contentSources: [
     new SanityContentSource({
-      projectId: process.env.SANITY_PROJECT_ID!,
-      token: process.env.SANITY_ACCESS_TOKEN!,
-      dataset: process.env.SANITY_DATASET || "production",
+      projectId: "sgwzchn9",
+      token:
+        "skhWJmv11z65x0MBmibgFKVe74uQHtPZe473td2Z2YZUeBU7BovcZDnLNaAFq3oOTBFzSMIw0hesQzCWKopjUIqHRnvQp65zIX8dvELWA6KTXfdAjj98QiikhRZDOCnyN6XAGJyqHKDL7E9oJdLYCYnKwDvQeMMTk0VdFfxBn9BYis2W9dnu",
+      dataset: "production",
       rootPath: __dirname,
       studioPath: path.resolve(__dirname, "studio"),
       studioUrl: process.env.SANITY_STUDIO_URL || "",

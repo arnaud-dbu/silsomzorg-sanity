@@ -7,4 +7,3 @@ export default defineCliConfig({
   },
   studioHost: "silsomzorg",
 });
-// nulem6w3
