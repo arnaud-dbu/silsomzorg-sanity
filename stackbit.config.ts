@@ -14,7 +14,7 @@ export default defineStackbitConfig({
       dataset: process.env.SANITY_DATASET || "production",
       rootPath: __dirname,
       studioPath: path.resolve(__dirname, "studio"),
-      studioUrl: "",
+      studioUrl: process.env.SANITY_STUDIO_URL || "",
     }),
   ],
   postInstallCommand: "npm i --no-save @stackbit/types @stackbit/cms-sanity",
