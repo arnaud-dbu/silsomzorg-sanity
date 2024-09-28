@@ -1,5 +1,4 @@
 import { SanityContentSource } from "@stackbit/cms-sanity";
-import path from "path";
 
 import { defineStackbitConfig } from "@stackbit/types";
 
@@ -14,7 +13,7 @@ export default defineStackbitConfig({
         "skhWJmv11z65x0MBmibgFKVe74uQHtPZe473td2Z2YZUeBU7BovcZDnLNaAFq3oOTBFzSMIw0hesQzCWKopjUIqHRnvQp65zIX8dvELWA6KTXfdAjj98QiikhRZDOCnyN6XAGJyqHKDL7E9oJdLYCYnKwDvQeMMTk0VdFfxBn9BYis2W9dnu",
       dataset: "production",
       rootPath: __dirname,
-      studioPath: "/studio",
+      studioPath: "silsomzorg-sanity/studio",
       studioUrl: process.env.SANITY_STUDIO_URL || "",
     }),
   ],
