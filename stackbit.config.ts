@@ -13,7 +13,7 @@ export default defineStackbitConfig({
       token: process.env.SANITY_ACCESS_TOKEN!,
       dataset: process.env.SANITY_DATASET || "production",
       rootPath: __dirname,
-      studioPath: path.resolve(__dirname, "studio"),
+      studioPath: path.resolve(__dirname),
       studioUrl: process.env.SANITY_STUDIO_URL || "",
     }),
   ],
