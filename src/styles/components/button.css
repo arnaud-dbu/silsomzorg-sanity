@@ -26,8 +26,6 @@
   }
 
   &--ext {
-    @mixin icon arrow-right;
-
     &::after {
       @apply ml-2;
     }
