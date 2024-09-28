@@ -1,6 +1,6 @@
 import { SanityContentSource } from "@stackbit/cms-sanity";
 import path from "path";
-
+import { allModelExtensions } from "./.stackbit/models";
 import { defineStackbitConfig } from "@stackbit/types";
 
 export default defineStackbitConfig({
@@ -17,5 +17,6 @@ export default defineStackbitConfig({
       studioUrl: process.env.SANITY_STUDIO_URL || "",
     }),
   ],
+  modelExtensions: allModelExtensions,
   postInstallCommand: "npm i --no-save @stackbit/types @stackbit/cms-sanity",
 });
