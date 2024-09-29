@@ -2,10 +2,11 @@ import { defineConfig } from "astro/config";
 
 import sanity from "@sanity/astro";
 import react from "@astrojs/react";
-import netlify from "@astrojs/netlify";
 import tailwind from "@astrojs/tailwind";
 import { astroImageTools } from "astro-imagetools";
 import icon from "astro-icon";
+
+import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
@@ -22,5 +23,7 @@ export default defineConfig({
     tailwind(),
     icon(),
   ],
-  adapter: netlify(),
+
+  adapter: vercel(),
+  output: "server",
 });
