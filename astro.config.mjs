@@ -5,7 +5,7 @@ import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 import { astroImageTools } from "astro-imagetools";
 import icon from "astro-icon";
-import vercelStatic from '@astrojs/vercel/static';
+import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
@@ -22,6 +22,5 @@ export default defineConfig({
     tailwind(),
     icon(),
   ],
-  output: "static",
-  adapter: vercelStatic(),
+  adapter: netlify(),
 });
