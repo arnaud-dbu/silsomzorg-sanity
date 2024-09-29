@@ -1,7 +1,7 @@
 import '../chunks/page-ssr_BtbyZ_Yv.mjs';
 import { c as createComponent, r as renderTemplate, m as maybeRenderHead, a as addAttribute, b as renderComponent, d as createAstro } from '../chunks/astro/server_DXd110xi.mjs';
 import 'kleur/colors';
-import { u as urlFor, c as $$Icon, g as getPageContent, a as $$PageBuilder, $ as $$Layout } from '../chunks/Layout_DnEShf-X.mjs';
+import { u as urlFor, c as $$Icon, g as getPageContent, a as $$PageBuilder, $ as $$Layout } from '../chunks/Layout_BUL_dPA0.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Astro = createAstro();

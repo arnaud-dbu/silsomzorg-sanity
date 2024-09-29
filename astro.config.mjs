@@ -23,6 +23,6 @@ export default defineConfig({
     tailwind(),
     icon(),
   ],
-
+  output: "server",
   adapter: vercel(),
 });
