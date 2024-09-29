@@ -1,0 +1,39 @@
+---
+import PageBuilder from "../../components/PageBuilder.astro";
+import PageHeader from "../../blocks/PageHeader.astro";
+import Layout from "../../layouts/Layout.astro";
+import { getPageContent } from "../../utils/sanity";
+
+export async function getStaticPaths() {
+  const data = await getPageContent("service");
+
+  const pages = data.map((page: any) => {
+    return {
+      slug: page.slug.current,
+      service: "aanbod",
+      pageHeader: page.pageHeader,
+      pageBuilder: page.pageBuilder,
+    };
+  });
+
+  return pages.map(({ slug, pageHeader, pageBuilder, service }: any) => {
+    return {
+      params: { slug, service },
+      props: { pageHeader, pageBuilder },
+    };
+  });
+}
+
+const {
+  pageHeader,
+  pageBuilder,
+}: { pageHeader: { title: string; description: string }; pageBuilder: any } =
+  Astro.props;
+
+const { blocks } = pageBuilder ?? {};
+---
+
+<Layout title={pageHeader.title} shape={true}>
+  <PageHeader data={pageHeader} detail />
+  {pageBuilder && <PageBuilder blocks={blocks} />}
+</Layout>
