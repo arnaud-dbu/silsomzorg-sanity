@@ -1,8 +1,8 @@
 import '../chunks/page-ssr_BtbyZ_Yv.mjs';
 import { c as createComponent, r as renderTemplate, b as renderComponent, d as createAstro } from '../chunks/astro/server_DXd110xi.mjs';
 import 'kleur/colors';
-import { $ as $$Layout, g as getPageContent, a as $$PageBuilder } from '../chunks/Layout_WMgded8n.mjs';
-import { $ as $$PageHeader } from '../chunks/PageHeader_DjF0m0tK.mjs';
+import { $ as $$Layout, g as getPageContent, a as $$PageBuilder } from '../chunks/Layout_CkSTLE7V.mjs';
+import { $ as $$PageHeader } from '../chunks/PageHeader_0ch_7TyP.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Astro = createAstro();
