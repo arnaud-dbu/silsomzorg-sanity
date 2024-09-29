@@ -1,9 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-import { srcSet, urlFor } from "../utils/image";
-import { Image } from "astro:assets";
 const { block } = Astro.props;
-const imageUrl = block.image ? urlFor(block.image).url() : null ?? "";
 ---
 
 <div class="flex">
@@ -17,20 +14,6 @@ const imageUrl = block.image ? urlFor(block.image).url() : null ?? "";
         "{block.quote}"
       </div>
       <div class="flex items-center flex-wrap gap-3">
-        {
-          block.image && (
-            <Image
-              sizes="150px"
-              srcset={srcSet(imageUrl)}
-              width={1000}
-              height={1000}
-              src={imageUrl}
-              alt={block.image.alt ?? ""}
-              class="size-8 lg:size-12 rounded-full object-cover"
-            />
-          )
-        }
-
         {
           block.author && (
             <footer class="text-lg font-normal">{block.author}</footer>

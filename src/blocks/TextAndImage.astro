@@ -9,10 +9,16 @@ import { halfWidthSizes } from "../utils/image";
 const { block } = Astro.props;
 
 let imageUrl = "";
-try {
-  imageUrl = block.image && urlFor(block.image).url();
-} catch (error) {
-  console.error("Error resolving image URL:", error);
+if (block.image && block.image.asset) {
+  try {
+    imageUrl = urlFor(block.image).url();
+  } catch (error) {
+    console.error("Error resolving image URL:", error);
+    imageUrl = "/path/to/fallback/image.jpg";
+  }
+} else {
+  console.warn("Image data is incomplete:", block.image);
+  imageUrl = "/path/to/fallback/image.jpg";
 }
 
 const alignImage =

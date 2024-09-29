@@ -6,8 +6,6 @@ import tailwind from "@astrojs/tailwind";
 import { astroImageTools } from "astro-imagetools";
 import icon from "astro-icon";
 
-import vercel from "@astrojs/vercel";
-
 // https://astro.build/config
 export default defineConfig({
   integrations: [
@@ -23,7 +21,4 @@ export default defineConfig({
     tailwind(),
     icon(),
   ],
-
-  adapter: vercel(),
-  output: "server",
 });

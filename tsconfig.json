@@ -1,3 +1,11 @@
 {
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "strict": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "skipLibCheck": true
+  },
   "extends": "astro/tsconfigs/strict"
+  
 }
