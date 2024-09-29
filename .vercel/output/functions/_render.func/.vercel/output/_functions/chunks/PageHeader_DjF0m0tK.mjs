@@ -1,6 +1,6 @@
 import { c as createComponent, r as renderTemplate, m as maybeRenderHead, a as addAttribute, b as renderComponent, d as createAstro, F as Fragment } from './astro/server_DXd110xi.mjs';
 import 'kleur/colors';
-import { u as urlFor } from './Layout_XjmY5NlB.mjs';
+import { u as urlFor } from './Layout_WMgded8n.mjs';
 
 const $$Astro = createAstro();
 const $$PageHeader = createComponent(($$result, $$props, $$slots) => {
