@@ -24,6 +24,5 @@ export default defineConfig({
     icon(),
   ],
 
-  output: "server",
   adapter: vercel(),
 });
