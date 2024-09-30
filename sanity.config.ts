@@ -9,6 +9,11 @@ import { presentationTool } from "sanity/presentation";
 
 import type { PluginOptions } from "sanity";
 
+const SANITY_STUDIO_PREVIEW_URL =
+  process.env.SANITY_STUDIO_PREVIEW_URL ||
+  "http://localhost:4321" ||
+  "https://silsomzorg.netlify.app/";
+
 export default defineConfig({
   projectId: "sgwzchn9",
   dataset: "production",
@@ -27,7 +32,7 @@ export default defineConfig({
     visionTool(),
     media() as PluginOptions,
     presentationTool({
-      previewUrl: "http://localhost:4321",
+      previewUrl: SANITY_STUDIO_PREVIEW_URL,
     }) as PluginOptions,
   ],
   schema: {
