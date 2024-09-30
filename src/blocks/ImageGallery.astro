@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import { halfWidthSizes, srcSet, urlFor } from "../utils/image";
+import { srcSet, urlFor, fullWidthSizes } from "../utils/image";
 
 const { block } = Astro.props;
 
@@ -29,7 +29,7 @@ if (length % 2 === 0) {
         const isLast = index === block.images.length - 1;
         return (
           <Image
-            sizes={halfWidthSizes()}
+            sizes={fullWidthSizes()}
             srcset={srcSet(imageUrl)}
             width={1000}
             height={1000}

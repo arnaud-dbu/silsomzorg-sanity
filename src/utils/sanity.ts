@@ -44,9 +44,15 @@ export async function getNavigationItems() {
 }
 
 export async function getCompanyInfo() {
-  return await sanityClient.fetch(`*[_type == "companyInfo"]`);
+  const { data } = await loadQuery<any[]>({
+    query: `*[_type == "companyInfo"]`,
+  });
+  return data;
 }
 
 export async function getSocialMedia() {
-  return await sanityClient.fetch(`*[_type == "socialMedia"]`);
+  const { data } = await loadQuery<any[]>({
+    query: `*[_type == "socialMedia"]`,
+  });
+  return data;
 }

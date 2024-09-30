@@ -26,20 +26,5 @@ export default {
         collapsed: false,
       },
     },
-    {
-      name: "linkStyle",
-      title: "Link Style",
-      type: "string",
-      initialValue: "Outline",
-      options: {
-        list: [
-          { title: "Primary", value: "primary" },
-          { title: "Outline", value: "outline" },
-          { title: "Link", value: "link" },
-        ],
-        layout: "radio",
-        direction: "horizontal",
-      },
-    },
   ],
 };

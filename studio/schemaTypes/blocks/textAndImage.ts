@@ -44,22 +44,14 @@ export default defineType({
       },
       fields: [
         {
-          name: "alt",
-          title: "Alternative text",
-          type: "string",
-          options: {
-            isHighlighted: true,
-          },
-        },
-        {
           name: "imagePosition",
           title: "Image Position",
           type: "string",
-          initialValue: "left",
+          initialValue: "image-left",
           options: {
             list: [
-              { title: "Left", value: "left" },
-              { title: "Right", value: "right" },
+              { title: "Image Left", value: "image-left" },
+              { title: "Image Right", value: "image-right" },
             ],
             layout: "radio",
             direction: "horizontal",

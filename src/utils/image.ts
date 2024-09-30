@@ -30,6 +30,14 @@ export const halfWidthSizes = (): string => `
 (min-width: 980px) and (max-width: 1199px) 458px,
 (min-width: 1200px) 568px`;
 
+export const fullWidthSizes = (): string => `
+(max-width: 479px) 95vw,
+(min-width: 480px) and (max-width: 659px) 448px,
+(min-width: 660px) and (max-width: 819px) 628px,
+(min-width: 820px) and (max-width: 979px) 778px,
+(min-width: 980px) and (max-width: 1199px) 938px,
+(min-width: 1200px) 1138px`;
+
 export const overviewWidthSizes = (): string => `
 (max-width: 479px) 95vw, 
 (min-width: 480px) and (max-width: 819px) 298px, 

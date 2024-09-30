@@ -14,7 +14,7 @@ const { block } = Astro.props;
     <div class="rich-text rich-text--inverse">
       <PortableText value={block.richText} />
     </div>
-    <Link data={block.cta} inverse />
+    <Link data={block.cta} style="btn btn--outline-inverse" />
   </div>
   <Icon
     class="absolute -right-[1rem] -top-[12.5rem] w-[35rem] sm:-top-[5rem] lg:-top-[7.5rem] lg:-right-[6rem] xl:-right-[5rem] xl:w-[35rem] lg:w-[32.5rem] sm:w-[30rem] h-auto"

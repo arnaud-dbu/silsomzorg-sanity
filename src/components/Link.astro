@@ -1,7 +1,7 @@
 ---
 import { getInternalLinkDetails } from "../utils/sanity";
 
-const { data, inverse } = Astro.props;
+const { data, inverse, style } = Astro.props;
 
 let href;
 let internalLinkDetails;
@@ -45,7 +45,7 @@ switch (data.linkStyle) {
 ---
 
 <a
-  class=`${linkStyle}${inverse ? "-inverse" : ""}`
+  class=`${style} ${inverse ? "-inverse" : ""}`
   target={data.link.blank ? "_blank" : ""}
   href={href}
   >{data.link.text}

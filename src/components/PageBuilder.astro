@@ -24,8 +24,8 @@ const { blocks } = Astro.props;
       const Component = components[block._type];
 
       return Component ? (
-        <section class={`section `}>
-          <div class={`container ${block.fullWidth ? "!p-0" : ""}`}>
+        <section class={`${block.fullWidth ? "" : "section"} `}>
+          <div class={` ${block.fullWidth ? "!p-0" : "container"}`}>
             <Component block={block} />
           </div>
         </section>

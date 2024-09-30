@@ -41,7 +41,7 @@ const { title, shape } = Astro.props;
     <main class={`${shape && "bg-shape"}`}>
       <slot />
       <VisualEditing enabled={true} zIndex={1000} />
-    </main>"
+    </main>
     <Footer
       nav={items}
       companyInfo={companyInfo[0]}
@@ -59,4 +59,5 @@ const { title, shape } = Astro.props;
   @import "../styles/components/link.css";
   @import "../styles/components/button.css";
   @import "../styles/components/hamburger.css";
+  @import "../styles/components/fullWidthImage.css";
 </style>

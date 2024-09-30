@@ -1,65 +1,75 @@
 ---
 import { urlFor } from "../utils/image";
 import { Image } from "astro:assets";
-import Links from "../components/Links.astro";
 import { PortableText } from "astro-portabletext";
-import { srcSet } from "../utils/image";
-import { halfWidthSizes } from "../utils/image";
+import { srcSet, halfWidthSizes } from "../utils/image";
+import Link from "../components/Link.astro";
 
 const { block } = Astro.props;
 
-let imageUrl = "";
-if (block.image && block.image.asset) {
-  try {
-    imageUrl = urlFor(block.image).url();
-  } catch (error) {
-    console.error("Error resolving image URL:", error);
-    imageUrl = "/path/to/fallback/image.jpg";
-  }
-} else {
-  console.warn("Image data is incomplete:", block.image);
-  imageUrl = "/path/to/fallback/image.jpg";
+function cleanString(str = "") {
+  return str.replace(/[^\x20-\x7E]/g, "");
 }
 
-const alignImage =
-  block.image.imagePosition == "left" ? "md:flex-row" : "md:flex-row-reverse";
+let imageUrl;
+let hasValidImage = false;
+try {
+  if (block.image && block.image._type === "image" && block.image.asset) {
+    imageUrl = urlFor(block.image).url();
+    hasValidImage = !!imageUrl;
+  }
+} catch (error) {
+  console.error("Error generating image URL:", error);
+}
+
+const imgPosition = cleanString(block.image?.imagePosition || "");
+
+let imgContainer;
+let imageAlignment;
+if (block.fullWidth) {
+  imgContainer = "full-width-image";
+  imageAlignment = imgPosition === "image-right" ? "image-right" : "";
+} else {
+  imgContainer =
+    "flex flex-col gap-6 md:gap-16 xl:gap-32 md:items-start xl:items-center";
+  imageAlignment =
+    imgPosition === "image-right" ? "md:flex-row-reverse" : "md:flex-row";
+}
 ---
 
-<div
-  class=`${block.image ? "flex flex-col md:flex-row lg:items-center  gap-8 md:gap-10 lg:gap-12 " : ""} ${block.fullWidth ? "xl:gap-36" : ""}  ${alignImage } `
->
+<section class={`${imgContainer} ${imageAlignment}`}>
   {
-    block.image && imageUrl && (
-      <div class="w-full lg:w-1/2 xl:w-2/5">
-        <div
-          class={`${block.fullWidth ? "js-pull-out" : ""}`}
-          data-direction={`${block.image.imagePosition ?? ""}`}
-        >
-          <Image
-            sizes={halfWidthSizes()}
-            srcset={srcSet(imageUrl)}
-            width={1000}
-            height={1000}
-            src={imageUrl}
-            alt={block.image.alt ?? ""}
-            class={`${block.fullWidth ? "aspect-square w-full h-full" : "img-rounded aspect-[7/6]"}  object-cover`}
-          />
-        </div>
-      </div>
+    hasValidImage && (
+      <Image
+        sizes={halfWidthSizes()}
+        srcset={srcSet(imageUrl ?? "")}
+        width={1000}
+        height={1000}
+        src={imageUrl ?? ""}
+        alt={block.image?.alt ?? ""}
+        class={`${block.fullWidth ? "aspect-square" : "img-rounded aspect-[7/6] md:w-1/2"} object-cover`}
+      />
     )
   }
   <div
-    class=`flex flex-col gap-4 px-4   ${block.image ? "w-full lg:w-1/2 xl:w-3/5" : "lg:flex-row lg:gap-16 xl:gap-24" }`
+    class={`spacing-y ${block.fullWidth ? "px-4 py-6 lg:py-12 xl:py-20" : "md:w-1/2"}`}
   >
-    <div class=`w-full ${block.image ? "" : "lg:w-1/2"} spacing-y `>
-      <div class=`block-heading w-full`>
-        <span>{block.tagline}</span>
-        <h2>{block.title}</h2>
-      </div>
-      <div class="rich-text">
-        <PortableText value={block.richText} />
-      </div>
-      {block.links && <Links data={block.links} />}
+    <div class="block-heading">
+      <span>{block.tagline}</span>
+      <h2>{block.title}</h2>
+    </div>
+    <div class="rich-text">
+      <PortableText value={block.richText} />
+    </div>
+    <div class="flex flex-wrap gap-3">
+      {
+        block.links?.map((link: any, index: number) => (
+          <Link
+            data={link}
+            style={`${index === 0 ? "btn btn--primary" : "btn btn--outline"}`}
+          />
+        ))
+      }
     </div>
   </div>
-</div>
+</section>

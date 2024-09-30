@@ -4,8 +4,6 @@ import PageHeader from "../../blocks/PageHeader.astro";
 import Layout from "../../layouts/Layout.astro";
 import { getPageContent } from "../../utils/sanity";
 
-export const prerender = true;
-
 export async function getStaticPaths() {
   const data = await getPageContent("service");
 
@@ -37,5 +35,5 @@ const { blocks } = pageBuilder ?? {};
 
 <Layout title={pageHeader.title} shape={true}>
   <PageHeader data={pageHeader} detail />
-  {pageBuilder && <PageBuilder blocks={blocks} />}
+  <div class="section">{pageBuilder && <PageBuilder blocks={blocks} />}</div>
 </Layout>
