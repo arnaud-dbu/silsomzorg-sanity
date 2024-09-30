@@ -14,13 +14,17 @@ export default defineConfig({
     sanity({
       projectId: "sgwzchn9",
       dataset: "production",
-      useCdn: false, // See note on using the CDN
+      useCdn: true, // See note on using the CDN
       apiVersion: "2024-08-30", // insert the current date to access the latest version of the API
       studioBasePath: "/studio",
+      stega: {
+        studioUrl: "/studio",
+      },
     }),
     react(),
     tailwind(),
     icon(),
   ],
+  output: "server",
   adapter: netlify(),
 });

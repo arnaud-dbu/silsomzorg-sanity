@@ -4,6 +4,7 @@ import PageHeader from "../blocks/PageHeader.astro";
 import Layout from "../layouts/Layout.astro";
 import { getPageContent } from "../utils/sanity";
 
+export const prerender = true;
 
 export async function getStaticPaths() {
   const data = await getPageContent("vision");
@@ -30,7 +31,7 @@ const {
 }: {
   pageHeader: { title: string; description: string };
   pageBuilder: any;
-  shape: any;
+  shape?: any;
 } = Astro.props;
 
 const { blocks } = pageBuilder ?? {};

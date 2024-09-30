@@ -3,3 +3,4 @@
 /// <reference types="@sanity/astro/module" />
 /// <reference types="@stackbit/types" />
 /// <reference types="@stackbit/cms-sanity" />
+/// <reference types="@sanity/astro/visual-editing" />

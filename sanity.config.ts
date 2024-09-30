@@ -5,14 +5,9 @@ import { linkField } from "sanity-plugin-link-field";
 import { visionTool } from "@sanity/vision";
 import { media } from "sanity-plugin-media";
 import { structure } from "./studio/structure/structure";
-import {presentationTool} from 'sanity/presentation'
+import { presentationTool } from "sanity/presentation";
 
-const SANITY_STUDIO_PREVIEW_URL = (
-	process.env.SANITY_STUDIO_PREVIEW_URL
-	|| 'http://localhost:4321',
-  "https://silweb-8ikitcvv0-stuw.vercel.app"
-)
-
+import type { PluginOptions } from "sanity";
 
 export default defineConfig({
   projectId: "sgwzchn9",
@@ -30,12 +25,10 @@ export default defineConfig({
       ],
     }),
     visionTool(),
-    media(),
+    media() as PluginOptions,
     presentationTool({
-      // Required: set the base URL to the preview location in the front end
-      previewUrl: SANITY_STUDIO_PREVIEW_URL,
-    }),
-
+      previewUrl: "http://localhost:4321",
+    }) as PluginOptions,
   ],
   schema: {
     types: schemaTypes,

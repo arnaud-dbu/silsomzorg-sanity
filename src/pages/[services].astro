@@ -6,6 +6,7 @@ import ServiceCard from "../blocks/ServiceCard.astro";
 import Layout from "../layouts/Layout.astro";
 const services = await getPageContent("service");
 
+export const prerender = true;
 
 export async function getStaticPaths() {
   const data = await getPageContent("services");
@@ -32,7 +33,7 @@ const {
 }: {
   pageHeader: { title: string; description: string };
   pageBuilder: any;
-  shape: boolean;
+  shape?: boolean;
 } = Astro.props;
 
 const { blocks } = pageBuilder ?? {};

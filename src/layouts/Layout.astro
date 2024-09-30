@@ -1,4 +1,6 @@
 ---
+import { VisualEditing } from "@sanity/astro/visual-editing";
+
 import Footer from "../blocks/Footer.astro";
 import Header from "../blocks/Header.astro";
 import Flyout from "../components/Flyout.astro";
@@ -38,7 +40,8 @@ const { title, shape } = Astro.props;
     <Header nav={items} companyInfo={companyInfo[0]} />
     <main class={`${shape && "bg-shape"}`}>
       <slot />
-    </main>
+      <VisualEditing enabled={true} zIndex={1000} />
+    </main>"
     <Footer
       nav={items}
       companyInfo={companyInfo[0]}

@@ -1,4 +1,5 @@
 import { sanityClient } from "sanity:client";
+import { loadQuery } from "./loadQuery";
 
 // export async function getMainNavigation() {
 //   return await sanityClient.fetch(`*[_type == "mainNavigation"].nav`);
@@ -14,16 +15,23 @@ export async function getPageContent(page: string, language?: string) {
   }
 
   const fullQuery = `${baseQuery}${languageFilter}`;
-  return await sanityClient.fetch(fullQuery);
+
+  const { data } = await loadQuery<any[]>({
+    query: fullQuery,
+  });
+
+  return data;
 }
 
 export async function getInternalLinkDetails(referenceId: string) {
-  return await sanityClient.fetch(
-    `*[_id == $referenceId][0]{
-    "slug": slug.current,
-  }`,
-    { referenceId }
-  );
+  const { data } = await loadQuery<{ slug: string }>({
+    query: `*[_id == $referenceId][0]{
+      "slug": slug.current,
+    }`,
+    params: { referenceId },
+  });
+
+  return data;
 }
 
 export async function getNavigationItems() {
