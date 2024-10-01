@@ -1,0 +1,69 @@
+---
+import Hero from "../blocks/Hero.astro";
+import PageBuilder from "../components/PageBuilder.astro";
+import Layout from "../layouts/Layout.astro";
+import { overviewWidthSizes, srcSet, urlFor } from "../utils/image";
+import { getPageContent } from "../utils/sanity";
+
+const homeData = await getPageContent("home");
+const blogData = await getPageContent("blog");
+
+console.log(blogData);
+
+const [{ hero, pageBuilder }] = homeData;
+const { blocks } = pageBuilder;
+---
+
+<Layout title="Home">
+  <main>
+    <Hero hero={hero} />
+    <div class="relative z-10">
+      <PageBuilder blocks={blocks} />
+    </div>
+
+    {
+      blogData && (
+        <div class="section !pt-0">
+          <div class="container spacing-y-lg">
+            <div class="block-heading">
+              <span>Blog</span>
+              <h2>Lees mijn recente verhalen</h2>
+            </div>
+            <div class="grid grid-cols-3 gap-6">
+              {blogData.map((block: any) => {
+                const imageUrl = urlFor(block.pageHeader.image).url();
+                return (
+                  <div class="spacing-y-sm relative">
+                    <img
+                      sizes={overviewWidthSizes()}
+                      srcset={srcSet(imageUrl ?? "")}
+                      width={1000}
+                      height={1000}
+                      src={imageUrl ?? ""}
+                      alt=""
+                      class={`aspect-[5/3] rounded-3xl object-cover`}
+                    />
+                    <div class="flex flex-col gap-2 px-2">
+                      <h3>{block.pageHeader.title}</h3>
+                      <p class="truncate-description text-lg">
+                        {block.pageHeader.description}
+                      </p>
+                      <div class="pt-2 mt-auto">
+                        <a
+                          class="underline link--extended text-primary-700 text-lg font-medium hover:no-underline"
+                          href={`blog/${block.slug.current}`}
+                        >
+                          Lees meer
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      )
+    }
+  </main>
+</Layout>

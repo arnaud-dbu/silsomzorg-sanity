@@ -5,13 +5,7 @@ import { linkField } from "sanity-plugin-link-field";
 import { visionTool } from "@sanity/vision";
 import { media } from "sanity-plugin-media";
 import { structure } from "./studio/structure/structure";
-import { presentationTool } from "sanity/presentation";
 import type { PluginOptions } from "sanity";
-
-const SANITY_STUDIO_PREVIEW_URL =
-  process.env.SANITY_STUDIO_PREVIEW_URL ||
-  "http://localhost:4321" ||
-  "https://silsomzorg.netlify.app/";
 
 const projectId = process.env.SANITY_STUDIO_PROJECT_ID;
 const dataset = process.env.SANITY_STUDIO_DATASET || "production";
@@ -39,9 +33,6 @@ export default defineConfig({
     }),
     visionTool(),
     media() as PluginOptions,
-    presentationTool({
-      previewUrl: SANITY_STUDIO_PREVIEW_URL,
-    }) as PluginOptions,
   ],
   schema: {
     types: schemaTypes,
