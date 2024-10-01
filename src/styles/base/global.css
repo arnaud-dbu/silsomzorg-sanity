@@ -195,3 +195,16 @@ h3 {
 .js-hidden {
   @apply hidden;
 }
+
+.truncate-description {
+  --truncate-line: 5;
+  --custom-line-height: 1.3rem;
+  line-height: var(--custom-line-height);
+  max-height: calc(var(--custom-line-height) * var(--truncate-line));
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: var(--truncate-line);
+  -webkit-box-orient: vertical;
+  transition: all 0.3s ease-in-out;
+}

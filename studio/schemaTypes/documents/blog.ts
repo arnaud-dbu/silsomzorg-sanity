@@ -10,10 +10,13 @@ export default defineType({
   title: "Blog",
   type: "document",
   preview: {
-    prepare() {
+    select: {
+      title: "pageHeader.title",
+    },
+    prepare({ title }) {
       return {
-        title: "Blog",
-        icon: ImBlog,
+        title,
+        media: ImBlog,
       };
     },
   },

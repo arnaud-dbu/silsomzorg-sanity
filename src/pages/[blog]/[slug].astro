@@ -1,0 +1,17 @@
+---
+import PageBuilder from "../../components/PageBuilder.astro";
+import PageHeader from "../../blocks/PageHeader.astro";
+import Layout from "../../layouts/Layout.astro";
+import { getContentBySlug } from "../../utils/sanity";
+
+const { slug } = Astro.params;
+const pageData = await getContentBySlug(slug as string);
+
+const { pageHeader, pageBuilder } = pageData;
+const { blocks } = pageBuilder ?? {};
+---
+
+<Layout title={pageHeader.title} shape={true}>
+  <PageHeader data={pageHeader} detail />
+  {pageBuilder && <PageBuilder blocks={blocks} />}
+</Layout>
