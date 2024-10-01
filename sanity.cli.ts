@@ -11,7 +11,7 @@ if (!projectId) {
 
 export default defineCliConfig({
   api: {
-    projectId: projectId,
+    projectId: "sgwzchn9",
     dataset: dataset,
   },
   studioHost: "Silsomzorg",

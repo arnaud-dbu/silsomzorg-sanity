@@ -17,7 +17,7 @@ if (!projectId) {
 }
 
 export default defineConfig({
-  projectId: projectId,
+  projectId: "sgwzchn9",
   dataset: dataset,
   plugins: [
     structureTool({ structure }),
