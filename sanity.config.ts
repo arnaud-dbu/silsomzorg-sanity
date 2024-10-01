@@ -28,7 +28,10 @@ export default defineConfig({
     visionTool(),
     media() as PluginOptions,
     presentationTool({
-      previewUrl: "http://localhost:4321" || "https://silsomzorg.netlify.app/",
+      previewUrl:
+        process.env.NODE_ENV === "production"
+          ? "https://silsomzorg.netlify.app/"
+          : "http://localhost:4321",
     }) as PluginOptions,
   ],
   schema: {
