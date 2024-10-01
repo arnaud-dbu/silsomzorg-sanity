@@ -9,7 +9,9 @@ import { presentationTool } from "sanity/presentation";
 import type { PluginOptions } from "sanity";
 
 const SANITY_STUDIO_PREVIEW_URL =
-  "http://localhost:4321" || "https://silsomzorg.netlify.app/";
+  process.env.SANITY_STUDIO_PREVIEW_URL ||
+  "http://localhost:4321" ||
+  "https://silsomzorg.netlify.app/";
 
 export default defineConfig({
   title: "silweb",
