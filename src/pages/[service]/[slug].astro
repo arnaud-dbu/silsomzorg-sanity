@@ -2,7 +2,7 @@
 import PageBuilder from "../../components/PageBuilder.astro";
 import PageHeader from "../../blocks/PageHeader.astro";
 import Layout from "../../layouts/Layout.astro";
-import { getContentBySlug, getPageContent } from "../../utils/sanity";
+import { getContentBySlug } from "../../utils/sanity";
 
 const { slug } = Astro.params;
 const pageData = await getContentBySlug(slug as string);
