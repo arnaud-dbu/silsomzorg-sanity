@@ -8,11 +8,6 @@ import { structure } from "./studio/structure/structure";
 import { presentationTool } from "sanity/presentation";
 import type { PluginOptions } from "sanity";
 
-const SANITY_STUDIO_PREVIEW_URL =
-  process.env.SANITY_STUDIO_PREVIEW_URL ||
-  "http://localhost:4321" ||
-  "https://silsomzorg.netlify.app/";
-
 export default defineConfig({
   title: "silweb",
   name: "silweb",
@@ -33,7 +28,7 @@ export default defineConfig({
     visionTool(),
     media() as PluginOptions,
     presentationTool({
-      previewUrl: SANITY_STUDIO_PREVIEW_URL,
+      previewUrl: "http://localhost:4321" || "https://silsomzorg.netlify.app/",
     }) as PluginOptions,
   ],
   schema: {
