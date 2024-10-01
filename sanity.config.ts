@@ -5,20 +5,17 @@ import { linkField } from "sanity-plugin-link-field";
 import { visionTool } from "@sanity/vision";
 import { media } from "sanity-plugin-media";
 import { structure } from "./studio/structure/structure";
+import { presentationTool } from "sanity/presentation";
 import type { PluginOptions } from "sanity";
 
-const projectId = process.env.SANITY_STUDIO_PROJECT_ID;
-const dataset = process.env.SANITY_STUDIO_DATASET || "production";
-
-if (!projectId) {
-  throw new Error(
-    "The `SANITY_STUDIO_PROJECT_ID` environment variable is required."
-  );
-}
+const SANITY_STUDIO_PREVIEW_URL =
+  "http://localhost:4321" || "https://silsomzorg.netlify.app/";
 
 export default defineConfig({
-  projectId: "sgwzchn9",
-  dataset: dataset,
+  title: "silweb",
+  name: "silweb",
+  projectId: import.meta.env.PUBLIC_SANITY_PROJECT_ID,
+  dataset: import.meta.env.PUBLIC_SANITY_DATASET,
   plugins: [
     structureTool({ structure }),
     linkField({
@@ -33,6 +30,9 @@ export default defineConfig({
     }),
     visionTool(),
     media() as PluginOptions,
+    presentationTool({
+      previewUrl: SANITY_STUDIO_PREVIEW_URL,
+    }) as PluginOptions,
   ],
   schema: {
     types: schemaTypes,

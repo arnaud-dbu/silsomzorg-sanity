@@ -14,5 +14,5 @@ export default defineCliConfig({
     projectId: "sgwzchn9",
     dataset: dataset,
   },
-  studioHost: "Silsomzorg",
+  studioHost: "silweb",
 });

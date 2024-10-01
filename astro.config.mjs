@@ -8,7 +8,7 @@ import netlify from "@astrojs/netlify";
 import { loadEnv } from "vite";
 
 const { SANITY_STUDIO_PROJECT_ID, SANITY_STUDIO_DATASET } = loadEnv(
-  import.meta.env.MODE,
+  process.env.NODE_ENV,
   process.cwd(),
   ""
 );
