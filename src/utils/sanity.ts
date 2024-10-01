@@ -23,6 +23,22 @@ export async function getPageContent(page: string, language?: string) {
   return data;
 }
 
+export async function getContentBySlug(slug: string, language?: string) {
+  let baseQuery = `*[slug.current == "${slug}"]`;
+  const languageFilter = language ? `[language == "${language}"]` : "";
+
+  // Add ordering to ensure services appear first if found
+  const ordering = '| order((_type == "service") desc, orderRank asc)';
+
+  const fullQuery = `${baseQuery}${languageFilter}${ordering}[0]`;
+
+  const { data } = await loadQuery<any>({
+    query: fullQuery,
+  });
+
+  return data || null; // Return the matching content or null if not found
+}
+
 export async function getInternalLinkDetails(referenceId: string) {
   const { data } = await loadQuery<{ slug: string }>({
     query: `*[_id == $referenceId][0]{

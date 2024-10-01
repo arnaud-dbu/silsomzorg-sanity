@@ -25,6 +25,6 @@ export default defineConfig({
     tailwind(),
     icon(),
   ],
-  output: "hybrid",
+  output: "server",
   adapter: netlify(),
 });
