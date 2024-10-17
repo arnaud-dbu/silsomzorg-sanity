@@ -16,7 +16,7 @@ const dataset =
   import.meta.env.PUBLIC_SANITY_DATASET!;
 
 const SANITY_STUDIO_PREVIEW_URL =
-  import.meta.env.SANITY_STUDIO_PREVIEW_URL || "http://localhost:4321";
+  import.meta.env.PUBLIC_SANITY_STUDIO_PREVIEW_URL || "http://localhost:4321";
 
 if (!projectId || !dataset) {
   throw new Error(
