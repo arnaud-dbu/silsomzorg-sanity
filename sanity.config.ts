@@ -15,6 +15,9 @@ const dataset =
   import.meta.env.PUBLIC_SANITY_STUDIO_DATASET! ||
   import.meta.env.PUBLIC_SANITY_DATASET!;
 
+const SANITY_STUDIO_PREVIEW_URL =
+  import.meta.env.SANITY_STUDIO_PREVIEW_URL || "http://localhost:4321";
+
 if (!projectId || !dataset) {
   throw new Error(
     `Missing environment variable(s). Check if named correctly in .env file.\n\nShould be:\nPUBLIC_SANITY_STUDIO_PROJECT_ID=${projectId}\nPUBLIC_SANITY_STUDIO_DATASET=${dataset}\n\nAvailable environment variables:\n${JSON.stringify(
@@ -45,10 +48,7 @@ export default defineConfig({
     visionTool(),
     media() as PluginOptions,
     presentationTool({
-      previewUrl:
-        process.env.NODE_ENV === "production"
-          ? "https://silsomzorg.netlify.app/"
-          : "https://silsomzorg.netlify.app",
+      previewUrl: SANITY_STUDIO_PREVIEW_URL,
     }) as PluginOptions,
   ],
   schema: {
