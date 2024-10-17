@@ -48,7 +48,7 @@ export default defineConfig({
     visionTool(),
     media() as PluginOptions,
     presentationTool({
-      previewUrl: SANITY_STUDIO_PREVIEW_URL,
+      previewUrl: "https://silsomzorg.netlify.app/",
     }) as PluginOptions,
   ],
   schema: {
