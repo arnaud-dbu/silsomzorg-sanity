@@ -26,11 +26,11 @@ const { blocks } = pageBuilder;
             <span>Blog</span>
             <h2>Lees mijn recente verhalen</h2>
           </div>
-          <div class="grid grid-cols-3 gap-6">
+          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {blogData.map((block: any) => {
               const imageUrl = urlFor(block.pageHeader.image).url();
               return (
-                <div class="spacing-y-sm relative">
+                <div class="relative spacing-y-sm">
                   <img
                     sizes={overviewWidthSizes()}
                     srcset={srcSet(imageUrl ?? "")}
@@ -42,12 +42,12 @@ const { blocks } = pageBuilder;
                   />
                   <div class="flex flex-col gap-2 px-2">
                     <h3>{block.pageHeader.title}</h3>
-                    <p class="truncate-description text-lg">
+                    <p class="text-lg truncate-description">
                       {block.pageHeader.description}
                     </p>
                     <div class="pt-2 mt-auto">
                       <a
-                        class="underline link--extended text-primary-700 text-lg font-medium hover:no-underline"
+                        class="text-lg font-medium underline link--extended text-primary-700 hover:no-underline"
                         href={`blog/${block.slug.current}`}
                       >
                         Lees meer

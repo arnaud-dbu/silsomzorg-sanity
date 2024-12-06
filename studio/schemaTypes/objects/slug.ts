@@ -2,6 +2,7 @@ export default {
   title: "Slug",
   name: "slug",
   type: "slug",
+  validation: (Rule : any) => Rule.required(),
   options: {
     source: "pageTitle",
     maxLength: 200,
