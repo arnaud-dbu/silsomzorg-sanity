@@ -26,5 +26,13 @@ export default defineType({
       type: 'array',
       of: [defineArrayMember(image)],
     },
+    { 
+      title: 'Preserve Aspect Ratio',
+      name: 'preserveRatio',
+      type: "boolean",
+      options: {
+        layout: "switch",
+      },
+     }
   ],
 })
