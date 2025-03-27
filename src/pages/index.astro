@@ -42,9 +42,7 @@ const { blocks } = pageBuilder;
                   />
                   <div class="flex flex-col gap-2 px-2">
                     <h3>{block.pageHeader.title}</h3>
-                    <p class="text-lg truncate-description">
-                      {block.pageHeader.description}
-                    </p>
+                    <p class="text-lg truncate-description">{block.pageHeader.description}</p>
                     <div class="pt-2 mt-auto">
                       <a
                         class="text-lg font-medium underline link--extended text-primary-700 hover:no-underline"
@@ -62,4 +60,30 @@ const { blocks } = pageBuilder;
       </div>
     )
   }
+
+  <section class="section section--default">
+    <div class="container">
+      <div class="block-heading text-center">
+        <span>Reviews</span>
+        <h2>Over Silsomzorg</h2>
+      </div>
+      <script
+        type="text/javascript"
+        src="https://www.juicer.io/embed/silsomzorg-3cfc7109-9d0b-49fb-a65f-3d1a5026c8a8/embed-code.js"
+        async
+        defer></script>
+    </div>
+  </section>
 </Layout>
+
+<script>
+  setTimeout(() => {
+    // Get the item with class ".referral"
+    const referral = document.querySelector(".referral") as HTMLElement;
+    // Check if the item exists
+    if (referral) {
+      // Remove the item and set important to override the display: none
+      referral.style.opacity = "0";
+    }
+  }, 1250);
+</script>
